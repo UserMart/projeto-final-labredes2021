@@ -1,7 +1,7 @@
 # Instituto Federal de Alagoas - Campus Arapiraca
 ### Prof. Alaelson Jatobá
 
-### Alunos: José Martins
+### Alunos: José Martins, Jonathan Candido, Milca Elen e Marcos Vaz
 
 ## Sumário
 
