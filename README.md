@@ -9,6 +9,8 @@
 
 ## 2. Definições Iniciais
 Tabela 1: Nomes dos servidores
+
+´´´
 -------------------------------------------------------------------------
 |    Nome da VM     |                    NOME                           |
 -------------------------------------------------------------------------
@@ -18,6 +20,7 @@ Tabela 1: Nomes dos servidores
 | NameServer2 (ns2) | ns2.grupo5.labredes.ifalarapiraca.local    |
 -------------------------------------------------------------------------
 
+´´´
 ## 3. Implementação dos Serivços de Rede (Cada serviço uma sessão)
 
 ## 4. Configuração estática do DNS na interface de rede do Ubuntu Server;
