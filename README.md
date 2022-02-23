@@ -8,19 +8,22 @@
 ## 1. Introdução
 
 ## 2. Definições Iniciais
-Tabela 1: Nomes dos servidores
+Tabela 1: Nomes das máquinas e IP's
 
-´´´
+
+
+```
 -------------------------------------------------------------------------
 |    Nome da VM     |                    NOME                           |
 -------------------------------------------------------------------------
-| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local     |
-| Samba-SRV.        | samba.grupo5.labredes.ifalarapiraca.local  |
-| NameServer1 (ns1) | ns1.grupo5.labredes.ifalarapiraca.local    |
-| NameServer2 (ns2) | ns2.grupo5.labredes.ifalarapiraca.local    |
+| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local            |
+| Samba-SRV.        | samba.grupo5.labredes.ifalarapiraca.local         |
+| NameServer1 (ns1) | ns1.grupo5.labredes.ifalarapiraca.local           |
+| NameServer2 (ns2) | ns2.grupo5.labredes.ifalarapiraca.local           |
 -------------------------------------------------------------------------
 
-´´´
+```
+
 ## 3. Implementação dos Serivços de Rede (Cada serviço uma sessão)
 
 ## 4. Configuração estática do DNS na interface de rede do Ubuntu Server;
