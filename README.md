@@ -1,20 +1,29 @@
 # Instituto Federal de Alagoas - Campus Arapiraca
 ### Prof. Alaelson Jatobá
 
-### Alunos: José Martins, Jonathan Candido, Milca Elen e Marcos Vaz
+### Alunos: José Martins, Jonathan Candido, Marcos Vinicius e Milca Elen 
 
 ## Sumário
 
 ## 1. Introdução
 
 ## 2. Definições Iniciais
+Tabela 1: Nomes dos servidores
+-------------------------------------------------------------------------
+|    Nome da VM     |                    NOME                           |
+-------------------------------------------------------------------------
+| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local     |
+| Samba-SRV.        | samba.grupo5.labredes.ifalarapiraca.local  |
+| NameServer1 (ns1) | ns1.grupo5.labredes.ifalarapiraca.local    |
+| NameServer2 (ns2) | ns2.grupo5.labredes.ifalarapiraca.local    |
+-------------------------------------------------------------------------
 
 ## 3. Implementação dos Serivços de Rede (Cada serviço uma sessão)
 
 ## 4. Configuração estática do DNS na interface de rede do Ubuntu Server;
 
 * Para que a máquina acesse os sites e hosts remotos por meio de nomes (Ex. www.google.com) é necessário adcionar os nameservers na configuração da interface de rede.
-* Para isso é configure o arquivo YAML que encontra-se na pasta **/etc/netplan/**.
+* Logo, configure o arquivo YAML que encontra-se na pasta **/etc/netplan/**.
 * Verifique o nome correto do arquivo no seu servidor. No exemplo a seguir, o nome do arquivo é ***00-installer-config.yaml***
 
 
