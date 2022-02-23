@@ -24,10 +24,7 @@ Tabela 1: Nomes das máquinas e IP's
 
 ```
 
-## 3. Implementação dos Serivços de Rede (Cada serviço uma sessão)
-
 ## 4. Configuração estática do DNS na interface de rede do Ubuntu Server;
-
 * Para que a máquina acesse os sites e hosts remotos por meio de nomes (Ex. www.google.com) é necessário adcionar os nameservers na configuração da interface de rede.
 * Logo, configure o arquivo YAML que encontra-se na pasta **/etc/netplan/**.
 * Verifique o nome correto do arquivo no seu servidor. No exemplo a seguir, o nome do arquivo é ***00-installer-config.yaml***
@@ -60,6 +57,10 @@ network:
 $ sudo netplan apply
 $ ifconfig -a
 ```
+
+
+## 3. Implementação dos Serivços de Rede (Cada serviço uma sessão)
+
 
 
 ## Considerações Finais
