@@ -8,15 +8,23 @@
 ## 1. Introdução
 
 ## 2. Definições Iniciais
-Tabela 1: Nomes das máquinas e IP's
-
+Tabela 1: IP's
+### Definições de Rede
+|Tipo|IP
+|-|-
+|Rede|10.9.24.0
+|Máscara|255.255.255
+|Gateway|10.9.24.1
+|Broadcast|10.9.24.255
+|ns1|10.9.24.114
+|samba|10.9.24.114
 
 
 ```
------------------------------------------------------------------------------------------------
-|    Nome da VM     |                    NOME                           |           IP VM     |
-----------------------------------------------------------------------------------------------
-| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local            |                     |
+-------------------------------------------------------------------------
+|    Nome da VM     |                    NOME                           |
+-------------------------------------------------------------------------
+| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local            |                     
 | Samba-SRV.        | samba.grupo5.labredes.ifalarapiraca.local         |
 | NameServer1 (ns1) | ns1.grupo5.labredes.ifalarapiraca.local           |
 | NameServer2 (ns2) | ns2.grupo5.labredes.ifalarapiraca.local           |
