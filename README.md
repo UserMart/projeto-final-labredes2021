@@ -13,10 +13,10 @@ Tabela 1: Nomes das máquinas e IP's
 
 
 ```
--------------------------------------------------------------------------
-|    Nome da VM     |                    NOME                           |
--------------------------------------------------------------------------
-| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local            |
+-----------------------------------------------------------------------------------------------
+|    Nome da VM     |                    NOME                           |           IP VM     |
+----------------------------------------------------------------------------------------------
+| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local            |                     |
 | Samba-SRV.        | samba.grupo5.labredes.ifalarapiraca.local         |
 | NameServer1 (ns1) | ns1.grupo5.labredes.ifalarapiraca.local           |
 | NameServer2 (ns2) | ns2.grupo5.labredes.ifalarapiraca.local           |
