@@ -39,7 +39,7 @@ Tabela 2: Nomes das Vm's
 * Verifique o nome correto do arquivo no seu servidor. No exemplo a seguir, o nome do arquivo é ***00-installer-config.yaml***
 
 
--  Edite o arquivo  ***00-installer-config.yaml*** 
+-  Depois edite o arquivo  ***00-installer-config.yaml*** com o seguinte comando:
 
 ```bash
 $ sudo nano /etc/netplan/00-installer-config.yaml
@@ -50,17 +50,17 @@ $ sudo nano /etc/netplan/00-installer-config.yaml
 network:
     ethernets:
         ens160:                           # nome da interface que está sendo configurada. Verifique com o comando 'ifconfig -a'
-            addresses: [10.0.0.11/24]     # IP e Máscara do Host. Aqui é só um exemplo, tenha certeza do IP do seu host, ou perderá o acesso remoto.
+            addresses: [10.9.24.108/24]   # IP e Máscara do Host. Aqui é só um exemplo, tenha certeza do IP do seu host, ou perderá o acesso remoto.
             gateway4: 10.0.0.1            # IP do Gateway, Aqui é só um exemplo, tenha certeza do IP do seu gateway, ou perderá o acesso remoto.
             dhcp4: false                  # dhcp4 false -> cliente DHCP está desabilitado, logo o utilizará o IP do campo 'addresses'
             nameservers:
                 addresses:
                    - 8.8.8.8              # IP do servidor de nomes 1, neste caso é o IP de DNS do google
                    - 8.8.4.4              # IP do servidor de nomes 2, neste caso é outro IP de DNS do google
-                search: []                # identificação do domínio, aqui neste caso está vazio.
+                search: [grupo5.turma924.ifalara.local]                # identificação do domínio, aqui neste caso está vazio.
     version: 2
 ```
--  Após salvar o arquivo é necessário aplicar as configurações, com o **netplan apply**. Depois veja a configuração das interfaces com ****ifconfig -a***
+-  Após salvar o arquivo, aplique as novas configurações, com o **netplan apply**. Depois veja a configuração das interfaces com ****ifconfig -a***
 
 ```bash
 $ sudo netplan apply
