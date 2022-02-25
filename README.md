@@ -86,6 +86,46 @@ $ ifconfig -a
     
 ```  
     ## 4.2 Confligurando o DNS Slave:
+    
+```bash
+$ sudo apt-get install bind9 dnsutils bind9-doc -y
+```
+
+
+   * Verifique o status do serviço:
+```bash
+$ sudo systemctl status bind9
+```
+   * Se não estiver rodando:
+```bash
+$ sudo systemctl enable bind9
+```
+
+### configuração de zonas
+
+```bash
+$ sudo nano /etc/bind/named.conf.local
+```
+```
+zone "labredes.ifalarapiraca.local" {
+  type slave;
+  file "/etc/bind/zones/db.labredes.ifalarapiraca.local";
+  masters { 10.9.14.10; };
+};
+
+zone "14.9.10.in-addr.arpa" IN {
+  type slave;
+  file "/etc/bind/zones/db.10.9.14.rev";
+  masters { 10.9.14.10; };
+};
+```
+
+### Checagem de sintaxe
+
+```bash
+$ sudo named-checkconf
+```
+
 
 ```
      $  dig @10.9.24.109 ns1.turma924.ifalara.local
