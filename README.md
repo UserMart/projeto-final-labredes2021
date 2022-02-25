@@ -8,7 +8,8 @@
 ## 1. Introdução
 Projeto realizado pelo o grupo 5 (cinco) para a matéria de Serviços de Redes em conjunto com
 a outra matéria Projeto e Infraestrutura de Redes, que tem por finalidade colocar em prática toda a teoria
-vista em aulas síncronas. Esse projeto visa conhecimentos básicos em serviços de redes como: DNS master e slave. 
+vista em aulas síncronas. Esse projeto visa conhecimentos básicos em serviços de redes como: DNS master e slave.
+Toda a implementação fica a cargo dos alunos que com muito esforço e dedicação realizaram esse projeto!
 
 
 ## 2. Definições Iniciais
