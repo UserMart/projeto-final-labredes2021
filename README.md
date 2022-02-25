@@ -75,7 +75,7 @@ $ ifconfig -a
 
 
 ## 4. Implementação dos Serivços de Rede (Cada serviço uma sessão)
-     ## 4.2 Confligurando o DNS Master:
+   4.2 Confligurando o DNS Master:
     
     
     
@@ -85,8 +85,8 @@ $ ifconfig -a
     
     
 ```  
-    ## 4.2 Confligurando o DNS Slave:
-   - Primeiro é preciso instalar e para isso usa-se o comando:
+   4.2 Confligurando o DNS Slave:
+-  Primeiro é preciso instalar e para isso usa-se o comando:
 ```bash
 $ sudo apt-get install bind9 dnsutils bind9-doc -y
 ```
