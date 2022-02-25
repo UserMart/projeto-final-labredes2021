@@ -78,9 +78,9 @@ $ ifconfig -a
     
     
     
-  
+```  
     ## 4.2 Confligurando o DNS Slave:
-```
+
   administrador@gw:~$  dig @10.9.24.109 ns1.turma924.ifalara.local
 
 ; <<>> DiG 9.16.6-Ubuntu <<>> @10.9.24.109 ns1.turma924.ifalara.local
