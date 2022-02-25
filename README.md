@@ -85,7 +85,7 @@ $ ifconfig -a
     
     
 
-   *4.2 Confligurando o DNS Slave:*
+  ### *4.2 Confligurando o DNS Slave:*
    * Primeiro é preciso instalar e para isso usa-se o comando:
 ```bash
 $ sudo apt-get install bind9 dnsutils bind9-doc -y
