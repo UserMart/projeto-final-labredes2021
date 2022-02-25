@@ -107,16 +107,24 @@ $ sudo systemctl enable bind9
 $ sudo nano /etc/bind/named.conf.local
 ```
 ```
-zone "labredes.ifalarapiraca.local" {
-  type slave;
-  file "/etc/bind/zones/db.labredes.ifalarapiraca.local";
-  masters { 10.9.14.10; };
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "turma924.ifalara.local" {
+        type slave;
+        file "/etc/bind/zones/db.grupo5.turma924.ifalara.local";
+        masters{ 10.9.24.109; };
+
 };
 
-zone "14.9.10.in-addr.arpa" IN {
-  type slave;
-  file "/etc/bind/zones/db.10.9.14.rev";
-  masters { 10.9.14.10; };
+zone "24.9.10.in-addr.arpa" IN{
+        type slave;
+        file "/etc/bind/zones/db.10.9.24.rev";
+        masters { 10.9.24.109; };
 };
 ```
 
