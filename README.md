@@ -130,6 +130,8 @@ $ sudo named-checkconf
 ```
      $  dig @10.9.24.109 ns1.turma924.ifalara.local
 ```
+* Resultado Esperado
+
 ```
 ; <<>> DiG 9.16.6-Ubuntu <<>> @10.9.24.109 ns1.turma924.ifalara.local
 ; (1 server found)
