@@ -100,8 +100,8 @@ $ sudo systemctl status bind9
 ```bash
 $ sudo systemctl enable bind9
 ```
-**Uma parte _extremamente_ importante é a **
-### configuração de zonas
+
+### Realizando as devidas configuração de zonas
 
 ```bash
 $ sudo nano /etc/bind/named.conf.local
@@ -120,7 +120,7 @@ zone "14.9.10.in-addr.arpa" IN {
 };
 ```
 
-### Checagem de sintaxe
+### Realizando a checagem de sintaxe
 
 ```bash
 $ sudo named-checkconf
