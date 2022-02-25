@@ -100,7 +100,7 @@ $ sudo systemctl status bind9
 ```bash
 $ sudo systemctl enable bind9
 ```
-
+**Uma parte _extremamente_ importante é a **
 ### configuração de zonas
 
 ```bash
