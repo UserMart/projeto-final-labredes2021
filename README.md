@@ -22,14 +22,14 @@ Tabela 1: IP's
 
 Tabela 2: Nomes das Vm's
 ```
--------------------------------------------------------------------------
-|    Nome da VM     |                    NOME                           |
--------------------------------------------------------------------------
-| Gateway (gw)      | gw.grupo5.labredes.ifalarapiraca.local            |                     
-| Samba-SRV.        | samba.grupo5.labredes.ifalarapiraca.local         |
-| NameServer1 (ns1) | ns1.grupo5.labredes.ifalarapiraca.local           |
-| NameServer2 (ns2) | ns2.grupo5.labredes.ifalarapiraca.local           |
--------------------------------------------------------------------------
+------------------------------------------------------------------
+|    Nome da VM     |                    NOME                     |
+------------------------------------------------------------------
+| Gateway (gw)      | gw.grupo5.labredes.ifalara.local            |                     
+| Samba-SRV.        | samba.grupo5.labredes.ifalara.local         |
+| NameServer1 (ns1) | ns1.grupo5.labredes.ifalara.local           |
+| NameServer2 (ns2) | ns2.grupo5.labredes.ifalara.local           |
+------------------------------------------------------------------
 
 ```
 
