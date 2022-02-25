@@ -51,6 +51,7 @@ $ sudo nano /etc/netplan/00-installer-config.yaml
 ```
 
 -  Adicione as linhas para a configuração estática do IP. [Baixe o arquivo 00-installer-config.yaml](https://github.com/alaelson/labredes2020/blob/master/network/interface-config/00-installer-config.yaml)
+
 ```
 network:
     ethernets:
@@ -87,9 +88,9 @@ $ ifconfig -a
     ## 4.2 Confligurando o DNS Slave:
 
 ```
- $  dig @10.9.24.109 ns1.turma924.ifalara.local
+     $  dig @10.9.24.109 ns1.turma924.ifalara.local
 ```
-
+```
 
 ; <<>> DiG 9.16.6-Ubuntu <<>> @10.9.24.109 ns1.turma924.ifalara.local
 ; (1 server found)
@@ -113,7 +114,7 @@ $ ifconfig -a
 ;; SERVER: 10.9.24.109#53(10.9.24.109)
 ;; WHEN: Fri Feb 25 13:06:18 UTC 2022
 ;; MSG SIZE  rcvd: 158
-````
+```
 
 
 ## Considerações Finais
