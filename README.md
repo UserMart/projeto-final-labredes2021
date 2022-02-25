@@ -75,7 +75,7 @@ $ ifconfig -a
 
 
 ## 4. Implementação dos Serivços de Rede (Cada serviço uma sessão)
-   ## 4.2 Confligurando o DNS Master:
+   *4.2 Confligurando o DNS Master:*
     
     
     
