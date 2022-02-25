@@ -33,7 +33,7 @@ Tabela 2: Nomes das Vm's
 
 ```
 
-## 4. Configuração estática do DNS na interface de rede do Ubuntu Server;
+## 3. Configuração estática do DNS na interface de rede do Ubuntu Server;
 * Para que a máquina acesse os sites e hosts remotos por meio de nomes (Ex. www.google.com) é necessário adcionar os nameservers na configuração da interface de rede.
 * Logo, configure o arquivo YAML que encontra-se na pasta **/etc/netplan/**.
 * Verifique o nome correto do arquivo no seu servidor. No exemplo a seguir, o nome do arquivo é ***00-installer-config.yaml***
@@ -68,7 +68,42 @@ $ ifconfig -a
 ```
 
 
-## 3. Implementação dos Serivços de Rede (Cada serviço uma sessão)
+## 4. Implementação dos Serivços de Rede (Cada serviço uma sessão)
+     ## 4.2 Confligurando o DNS Master:
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ## 4.2 Confligurando o DNS Slave:
+    administrador@gw:~$  dig @10.9.24.109 ns1.turma924.ifalara.local
+
+; <<>> DiG 9.16.6-Ubuntu <<>> @10.9.24.109 ns1.turma924.ifalara.local
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; WARNING: .local is reserved for Multicast DNS
+;; You are currently testing what happens when an mDNS query is leaked to DNS
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 21582
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: e6f9391aca2117c8010000006218d44a88cd6f9923ed0209 (good)
+;; QUESTION SECTION:
+;ns1.turma924.ifalara.local.    IN      A
+
+;; AUTHORITY SECTION:
+.                       10800   IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2022022500 1800 900 604800 86400
+
+;; Query time: 345 msec
+;; SERVER: 10.9.24.109#53(10.9.24.109)
+;; WHEN: Fri Feb 25 13:06:18 UTC 2022
+;; MSG SIZE  rcvd: 158
 
 
 
