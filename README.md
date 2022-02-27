@@ -128,33 +128,32 @@ $ sudo mkdir /etc/bind/zones
 #### Criar arquivos db
    * Criar o arquivo **db** no diretório ***/etc/bind/zones***. 
    * Os arquivos **db** são bancos de dados de resolução de nomes, ou seja, quando se sabe o nome da máquina mas não se conhece o IP. Cada zona no DNS deve ter seu próprio arquivo **db**, por exemplo: a zona *meusite.com.br* terá o arquivo **db.meusite.com.br**, já a zona *outrosite.net* terá o arquivo **db.outrosite.net**. 
-   * No nosso caso o domínio/zona local será labredes.ifalarapiraca.local. Assim o arquivo db será db.labredes.ifalarapiraca.local
+   * No nosso caso o domínio/zona local será grupo5.turma924.ifalara.local. Assim o arquivo db será db.labredes.ifalarapiraca.local
    
 ##### zona direta
-   * o arquivo db.labredes.ifalarapiraca.local conterá os nomes das máquinas do domínio labredes.ifalarapiraca.local
+   * o arquivo db.turma924.ifalara.local conterá os nomes das máquinas do domínio grupo5.turma924.ifalara.local
    * Para isso faremos uma cópia do arquivo /etc/bind/db.empty
 ```bash
-$ sudo cp /etc/bind/db.empty /etc/bind/zones/db.labredes.ifalarapiraca.local 
+$ sudo cp /etc/bind/db.empty /etc/bind/zones/db.turma924.ifalara.local 
 ```
 
 ##### zona reversa
    * Utilizado quando não se conhece o IP mas sabe-se o nome do host.
    * vamos criar a zona reversa a partir do arquivo /etc/bind/db.127
 ```bash
-  $ sudo cp /etc/bind/db.127 /etc/bind/zones/db.10.9.14.rev
+  $ sudo cp /etc/bind/db.127 /etc/bind/zones/db.10.9.24.rev
 ```
 
-   * Assim, o arquivo **db.10.9.14.rev** conterá a zona reversa da rede 10.9.14.0. 
+   * Assim, o arquivo **db.10.9.24.rev** conterá a zona reversa da rede 10.9.14.0. 
 
    
 ### Editar arquivos db:
 
-   #### zona direta: db.labredes.ifalarapiraca.local
-   * edite o arquivo  **db.labredes.ifalarapiraca.local** para adcionar as informações do seu domínio
-      * As linhas iniciadas com **;** são comentários 
+   #### zona direta: db.turma924.ifalara.local
+   * edite o arquivo  **db.turma924.ifalara.local** para adcionar as informações do seu domínio
       
 ```bash   
-    $ sudo nano db.labredes.ifalarapiraca.local 
+    $ sudo nano db.turma924.ifalara.local
 ```
 ---
 ```
@@ -181,9 +180,8 @@ desktophost1    CNAME     dh1                 ; CNAME é um apelido
 ```
 
 ---
-   #### zona reversa: db.10.9.14.rev
-   * edite o arquivo **db.10.9.14.rev** para adcionar as informações da zona reversa
-      * As linhas iniciadas com **;** são comentários.
+   #### zona reversa: db.10.9.24.rev
+   * edite o arquivo **db.10.9.24.rev** para adcionar as informações da zona reversa
    
 ---
 ```
