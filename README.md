@@ -77,10 +77,10 @@ $ ifconfig -a
 ```
 
 
-## 4. Implementação dos Serivços de Rede (Cada serviço uma sessão)
-   *4.2 Confligurando o DNS Master:*
+# 4. Implementação dos Serivços de Rede (Cada serviço uma sessão)
+   ## *4.2 Confligurando o DNS Master:*
    
-# Instalação necessária do Bind9 
+### Instalação necessária do Bind9 
    * Vale ressaltar que o BIND9 é a aplicação de DNS que roda no servidor.
    * Para instalar o bind9 de forma fácil é via comando:
 ```bash
