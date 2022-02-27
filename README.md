@@ -338,64 +338,69 @@ MulticastDNS setting: no
 #### Teste o serviço DNS para a máquina ns1. 
    * Veja a resposta em **ANSWER SECTION**.
 ```bash
-$ dig ns1.labredes.ifalarapiraca.local
+$ dig ns1.grupo5.turma924.ifalara.local
 ```
 
 ```
-; <<>> DiG 9.11.3-1ubuntu1.9-Ubuntu <<>> ns1.labredes.ifalarapiraca.local
+; <<>> DiG 9.16.8-Ubuntu <<>> ns1.grupo5.turma924.ifalara.local
 ;; global options: +cmd
 ;; Got answer:
 ;; WARNING: .local is reserved for Multicast DNS
 ;; You are currently testing what happens when an mDNS query is leaked to DNS
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47542
+;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 14347
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 65494
 ;; QUESTION SECTION:
-;ns1.labredes.ifalarapiraca.local. IN	A
+;ns1.grupo5.turma924.ifalara.local. IN  A
 
 ;; ANSWER SECTION:
-ns1.labredes.ifalarapiraca.local. 5204 IN A	10.9.14.10
-
+ns1.grupo5.turma924.ifalara.local. 5204 IN A	10.9.24.108
+   
 ;; Query time: 0 msec
 ;; SERVER: 127.0.0.53#53(127.0.0.53)
-;; WHEN: Tue Oct 15 06:02:20 UTC 2019
-;; MSG SIZE  rcvd: 7
+;; WHEN: Sun Feb 27 02:47:03 UTC 2022
+;; MSG SIZE  rcvd: 62
+
+
 ```
 ---
 
 #### Teste o serviço DNS reverso para a máquina ns1. 
 ```bash    
-$ dig -x 10.9.14.10
+$ dig -x 10.9.24.108
 ```
 ```
-; <<>> DiG 9.11.3-1ubuntu1.9-Ubuntu <<>> -x 10.9.14.10
+  dig -x 10.9.24.108
+
+; <<>> DiG 9.16.8-Ubuntu <<>> -x 10.9.24.108
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 48674
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 9764
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 65494
 ;; QUESTION SECTION:
-;10.9.14.10.in-addr.arpa.		IN	PTR
+;108.24.9.10.in-addr.arpa.      IN      PTR
 
 ;; ANSWER SECTION:
-10.9.14.10.in-addr.arpa.	6141	IN	PTR	ns1.labredes.ifalarapiraca.local.
-
-;; Query time: 0 msec
+108.24.9.10.in-addr.arpa. 0     IN      PTR     ns1.grupo5.turma924.ifalara.local.
+    
+;; Query time: 79 msec
 ;; SERVER: 127.0.0.53#53(127.0.0.53)
-;; WHEN: Tue Oct 15 06:01:23 UTC 2019
-;; MSG SIZE  rcvd: 97
+;; WHEN: Sun Feb 27 02:48:22 UTC 2022
+;; MSG SIZE  rcvd: 158
+
 ```
 ---
 #### Teste o serviço DNS reverso para a máquina ns2. 
 ```bash  
-$ dig -x 10.9.14.11
+$ dig -x 10.9.24.109
 ```
 ```
-; <<>> DiG 9.11.3-1ubuntu1.9-Ubuntu <<>> -x 10.9.14.11
+; <<>> DiG 9.11.3-1ubuntu1.9-Ubuntu <<>> -x 10.9.24.109
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 56462
@@ -404,14 +409,14 @@ $ dig -x 10.9.14.11
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 65494
 ;; QUESTION SECTION:
-;11.14.9.10.in-addr.arpa.		IN	PTR
+;109.24.9.10.in-addr.arpa.		IN	PTR
 
 ;; ANSWER SECTION:
-11.14.9.10.in-addr.arpa.	6177	IN	PTR	ns2.labredes.ifalarapiraca.local.
+109.24.9.10.in-addr.arpa.	6177	IN	PTR	ns2.grupo5.turma924.ifalara.local.
 
 ;; Query time: 0 msec
 ;; SERVER: 127.0.0.53#53(127.0.0.53)
-;; WHEN: Tue Oct 15 06:01:01 UTC 2019
+;; WHEN: Sun Feb 27 02:58:43 UTC 2022
 ;; MSG SIZE  rcvd: 97
 ```
 ---
