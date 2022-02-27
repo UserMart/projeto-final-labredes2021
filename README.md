@@ -293,9 +293,9 @@ $ sudo systemctl restart bind9
 ```
             nameservers: 
                 addresses:
-                - 10.9.14.10
-                - 10.9.14.11
-                search: [labredes.ifalarapiraca.local]
+                - 10.9.24.108
+                - 10.9.24.109
+                search: [[grupo5.turma924.ifalara.local]
 ```
    * O arquivo de configuração do netplan ficará da seguinte forma:
 
