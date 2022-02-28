@@ -226,9 +226,9 @@ $ sudo nano /etc/bind/named.conf.local
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "grupo5.turma924.ifalarapiraca.local" {
+zone "grupo5.turma924.ifalara.local" {
         type master;
-        file "/etc/bind/zones/db.grupo5.turma924.ifalarapiraca.local";
+        file "/etc/bind/zones/db.grupo5.turma924.ifalara.local";
         allow-transfer{ 10.9.24.108; };
         allow-query{any;};
 };
@@ -249,7 +249,7 @@ $sudo named-checkconf
 ```
 
 ```
-/etc/bind/named.conf.local:12: option 'masters' is not allowed in 'master' zone 'grupo5.turma924.ifalarapiraca.local'
+/etc/bind/named.conf.local:12: option 'masters' is not allowed in 'master' zone 'grupo5.turma924.ifalara.local'
 /etc/bind/named.conf.local:17: option 'masters' is not allowed in 'master' zone '24.9.10.in-addr.arpa'
 /etc/bind/named.conf.local:15: zone '24.9.10.in-addr.arpa': missing 'file' entry
 ```
@@ -259,7 +259,7 @@ $sudo named-checkconf
 
 ```bash
 $ cd /etc/bind/zones
-$ sudo named-checkzone grupo5.turma924.ifalara.local db.turma924.ifalara.local
+$ sudo named-checkzone turma924.ifalara.local db.turma924.ifalara.local
 zone grupo5.turma924.ifalara.local/IN: loaded serial 1
 OK
 $ sudo named-checkzone 24.9.10.in-addr.arpa db.10.9.24.rev
