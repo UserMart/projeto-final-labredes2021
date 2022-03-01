@@ -481,30 +481,34 @@ $ sudo named-checkconf
 ```
 * Resultado Esperado
 
-```
-; <<>> DiG 9.16.6-Ubuntu <<>> @10.9.24.109 ns1.turma924.ifalara.local
+```; <<>> DiG 9.11.3-1ubuntu1.9-Ubuntu <<>> @10.9.24.109 ns1.grupo5.turma924.ifalara.local
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
 ;; WARNING: .local is reserved for Multicast DNS
 ;; You are currently testing what happens when an mDNS query is leaked to DNS
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 21582
-;; flags: qr rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15875
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 4096
-; COOKIE: e6f9391aca2117c8010000006218d44a88cd6f9923ed0209 (good)
+; COOKIE: 2ada115f11a1f1503fc446975da5644227f17494e73108e6 (good)
 ;; QUESTION SECTION:
-;ns1.turma924.ifalara.local.    IN      A
+;ns1.grupo5.turma924.ifalara.local. IN A
+
+;; ANSWER SECTION:
+ns1.grupo5.turma924.ifalara.local. 604800 IN A 10.0.0.10
 
 ;; AUTHORITY SECTION:
-.                       10800   IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2022022500 1800 900 604800 86400
+labredes.ifalarapiraca.local. 604800 IN NS  ns2.grupo5.turma924.ifalara.local.
+labredes.ifalarapiraca.local. 604800 IN NS  ns1.grupo5.turma924.ifalara.local.
+;; ADDITIONAL SECTION:
+ns2.grupo5.turma924.ifalara.local. 604800 IN A 10.9.24.109
 
-;; Query time: 345 msec
+;; Query time: 0 msec
 ;; SERVER: 10.9.24.109#53(10.9.24.109)
-;; WHEN: Fri Feb 25 13:06:18 UTC 2022
-;; MSG SIZE  rcvd: 158
-
+;; WHEN: Tue Oct 15 06:16:34 UTC 2019
+;; MSG SIZE  rcvd: 153
 ```
 
 
