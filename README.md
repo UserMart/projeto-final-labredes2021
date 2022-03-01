@@ -324,15 +324,18 @@ network:
 $ systemd-resolve --status ens160
 ```
 ```
-Link 2 (enp0s3)
+Link 2 (ens160)
       Current Scopes: DNS
+DefaultRoute setting: yes
        LLMNR setting: yes
 MulticastDNS setting: no
+  DNSOverTLS setting: no
       DNSSEC setting: no
     DNSSEC supported: no
-         DNS Servers: 10.9.14.10
-                      10.9.14.11
-         DNS Domain: labredes.ifalarapiraca.local
+  Current DNS Server: 10.9.24.109
+         DNS Servers: 10.9.24.109
+                      10.9.24.108
+          DNS Domain: grupo5.turma924.ifalara.local
 ```
 ---
 #### Teste o serviço DNS para a máquina ns1. 
