@@ -131,10 +131,10 @@ $ sudo mkdir /etc/bind/zones
    * No nosso caso o domínio/zona local será grupo5.turma924.ifalara.local. Assim o arquivo db será db.labredes.ifalarapiraca.local
    
 ##### zona direta
-   * o arquivo db.turma924.ifalara.local conterá os nomes das máquinas do domínio grupo5.turma924.ifalara.local
+   * o arquivo db.grupo5.turma924.ifalara.local conterá os nomes das máquinas do domínio grupo5.turma924.ifalara.local
    * Para isso faremos uma cópia do arquivo /etc/bind/db.empty
 ```bash
-$ sudo cp /etc/bind/db.empty /etc/bind/zones/db.turma924.ifalara.local 
+$ sudo cp /etc/bind/db.empty /etc/bind/zones/db.grupo5.turma924.ifalara.local 
 ```
 
 ##### zona reversa
@@ -144,16 +144,16 @@ $ sudo cp /etc/bind/db.empty /etc/bind/zones/db.turma924.ifalara.local
   $ sudo cp /etc/bind/db.127 /etc/bind/zones/db.10.9.24.rev
 ```
 
-   * Assim, o arquivo **db.10.9.24.rev** conterá a zona reversa da rede 10.9.14.0. 
+   * Assim, o arquivo **db.10.9.24.rev** conterá a zona reversa da rede 10.9.24.0. 
 
    
 ### Editar arquivos db:
 
-   #### zona direta: db.turma924.ifalara.local
-   * edite o arquivo  **db.turma924.ifalara.local** para adcionar as informações do seu domínio
+   #### zona direta: db.grupo5.turma924.ifalara.local
+   * edite o arquivo  **db.grupo5.turma924.ifalara.local** para adcionar as informações do seu domínio
       
 ```bash   
-    $ sudo nano db.turma924.ifalara.local
+    $ sudo nano db.grupo5.turma924.ifalara.local
 ```
 ---
 ```
