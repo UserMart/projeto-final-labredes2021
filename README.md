@@ -229,14 +229,14 @@ $ sudo nano /etc/bind/named.conf.local
 zone "grupo5.turma924.ifalara.local" {
         type master;
         file "/etc/bind/zones/db.grupo5.turma924.ifalara.local";
-        allow-transfer{ 10.9.24.108; };
+        allow-transfer{ 10.9.24.109; };
         allow-query{any;};
 };
 
 zone "24.9.10.in-addr.arpa" IN {
         type master;
         file "/etc/bind/zones/db.10.9.24.rev";
-        allow-transfer{ 10.9.24.108; };
+        allow-transfer{ 10.9.24.109; };
 };
 ```
 ---
