@@ -176,9 +176,11 @@ $TTL    3h
 ;hosts
 ns1.grupo5.turma924.ifalara.local.        IN    A       10.9.24.108
 ns2.grupo5.turma924.ifalara.local.        IN    A       10.9.24.109
-dh1.grupo5.turma924.ifalara.local.        IN    A       10.9.24.100
-gw.grupo5.turma924.ifalara.local.         IN    A       10.9.24.1
-desktophost1    CNAME     dh1                 ; CNAME é um apelido
+samba.grupo5.turma924.ifalara.local.      IN    A       10.9.24.114
+gw.grupo5.turma924.ifalara.local.         IN    A       10.9.24.117
+www.grupo5.turma924.ifalara.local.        IN    A       10.9.24.219
+bd.grupo5.turma924.ifalara.local.         IN    A       10.9.24.220
+
 ```
 
 ---
@@ -188,26 +190,27 @@ desktophost1    CNAME     dh1                 ; CNAME é um apelido
 ---
 ```
 ;
-; BIND reverse data file of reverse zone for local area network 10.9.24.0/24
+; BIND data file for internal network
 ;
-$TTL    604800
-@       IN      SOA     grupo5.turma924.ifalara.local. root.turma924.ifalara.local. (
-                              1         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
-
+;ORIGIN grupo5.turma924.ifalara.local.
+$TTL    60
+@       IN      SOA     ns1.grupo5.turma924.ifalara.local. root.turma924.ifalara.local. (
+                              2         ; Serial
+                              3h        ; Refresh
+                              1h        ; Retry
+                              1w        ; Expire
+                              1h )      ; Negative Cache TTL
 ; name servers
-@      IN      NS      ns1.grupo5.turma924.ifalara.local.
-@      IN      NS      ns2.grupo5.turma924.ifalara.local.
+@       IN      NS      ns1.grupo5.turma924.ifalara.local.
+@       IN      NS      ns2.grupo5.turma924.ifalara.local.
 
 ; PTR Records
-108  IN      PTR     ns1.grupo5.turma924.ifalara.local.             ; 10.9.24.108
-109  IN      PTR     ns2.grupo5.turma924.ifalara.local.             ; 10.9.14.109
-100  IN      PTR     dh1.grupo5.turma924.ifalara.local.             ; 10.9.24.100
-1    IN      PTR     gw.grupo5.turma924.ifalara.local.              ; 10.9.24.1
-
+108      IN      PTR     ns1.grupo5.turma924.ifalara.local.       ;10.9.24.108
+109      IN      PTR     ns2.grupo5.turma924.ifalara.local.       ;10.9.24.109
+117      IN      PTR     samba.grupo5.turma924.ifalara.local.     ;10.9.24.114
+114      IN      PTR     gw.grupo5.turma924.ifalara.local.        ;10.9.24.117
+219      IN      PTR     www.grupo5.turma924.ifalara.local        ;10.9.24.219
+220      IN      PTR     bd.grupo5.turma924.ifalara.local         ;10.9.24.220
 
 ```
 ---
@@ -261,7 +264,7 @@ $sudo named-checkconf
 
 ```bash
 $ cd /etc/bind/zones
-$ sudo named-checkzone turma924.ifalara.local db.turma924.ifalara.local
+$ sudo named-checkzone grupo5.turma924.ifalara.local db.grupo5.turma924.ifalara.local
 zone grupo5.turma924.ifalara.local/IN: loaded serial 1
 OK
 $ sudo named-checkzone 24.9.10.in-addr.arpa db.10.9.24.rev
