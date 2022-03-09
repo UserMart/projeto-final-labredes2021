@@ -508,9 +508,8 @@ ns1.grupo5.turma924.ifalara.local. 10800 IN A   10.9.24.108
 
 ```
 
-# 5. Configuração do servidor Gateway como NAT
-    ## Configuração do firewall/NAT
-
+# 5. Configuração do servidor Gateway como NAT;
+    
    * A configuração se inicia quando configuramos um servidor como gateway de rede, para isso é necessário configurar o firewall do linux (iptables). 
    * Iptables tem regras e podem ser digitadas no terminal ou podem ser executadas em um script.
    * Com um script, pode-se inicializar as regras do firewall todas as vezes que a máquina for reinicializada.
@@ -539,8 +538,8 @@ net/ipv4/ip_forwarding=1
 $ ifconfig -a
 ```
 ```
-WAN interface: enp0s3 
-LAN interface: enp0s8
+WAN interface: ens160 
+LAN interface: ens192
 ```
 
    4º. Configurar as interfaces de rede (netplan) 
@@ -586,25 +585,25 @@ iptables -P FORWARD DROP
 # Accept incoming packets from localhost and the LAN interface.
 # Aceita pacotes de entrada a partir das interfaces localhost e the LAN.
 iptables -A INPUT -i lo -j ACCEPT
-iptables -A INPUT -i enp0s8 -j ACCEPT
+iptables -A INPUT -i ens192 -j ACCEPT
 
 # Accept incoming packets from the WAN if the router initiated the connection.
 # Aceita pacotes de entrada a partir da WAN se o roteador iniciou a conexao
-iptables -A INPUT -i enp0s3 -m conntrack \
+iptables -A INPUT -i ens160 -m conntrack \
 --ctstate ESTABLISHED,RELATED -j ACCEPT
 
 # Forward LAN packets to the WAN.
 # Encaminha os pacotes da LAN para a WAN
-iptables -A FORWARD -i enp0s8 -o enp0s3 -j ACCEPT
+iptables -A FORWARD -i ens192 -o ens160 -j ACCEPT
 
 # Forward WAN packets to the LAN if the LAN initiated the connection.
 # Encaminha os pacotes WAN para a LAN se a LAN inicar a conexao.
-iptables -A FORWARD -i enp0s3 -o enp0s8 -m conntrack \
+iptables -A FORWARD -i ens160 -o ens192 -m conntrack \
 --ctstate ESTABLISHED,RELATED -j ACCEPT
 
 # NAT traffic going out the WAN interface.
 # Trafego NAT sai pela interface WAN
-iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o ens160 -j MASQUERADE
 
 # rc.local needs to exit with 0
 # rc.local precisa sair com 0
@@ -636,14 +635,14 @@ $ sudo nano /etc/netplan/50-cloud-init.yaml
 network:
     ethernets:
         enp0s3:
-            addresses: [10.0.0.11/24]
+            addresses: [10.9.24.117/24]
             gateway4: 10.0.0.1
             dhcp4: false
             nameservers:
                 addresses:
                 - 8.8.8.8
                 - 8.8.4.4
-                search: []
+                search: [gw.grupo5.turma924.ifalara.local]
     version: 2
 ```
 
@@ -659,26 +658,26 @@ $ ifconfig -a
   
    a. SAMBA: Para permitir que o serviço de compartilhamento de arquivos esteja disponível externamente:
         * Portas: 445 e 139
-        * Interface Externa aqui é a WAN: enp0s3
+        * Interface Externa aqui é a WAN: ens160
         * IP do servidor = 10.0.0.100
         
 ```bash
 #Recebe pacotes na porta 445 da interface externa do gw e encaminha para o servidor interno na porta 445
-iptables -A PREROUTING -t nat -i enp0s3 -p tcp –-dport 445 -j DNAT –-to 10.0.0.100:445
+iptables -A PREROUTING -t nat -i ens160 -p tcp –-dport 445 -j DNAT –-to 10.0.0.100:445
 iptables -A FORWARD -p tcp -d 10.0.0.100 –-dport 445 -j ACCEPT
 
 #Recebe pacotes na porta 139 da interface externa do gw e encaminha para o servidor interno na porta 139
-iptables -A PREROUTING -t nat -i enp0s3 -p tcp –-dport 139 -j DNAT –-to 10.0.0.100:139
+iptables -A PREROUTING -t nat -i ens160 -p tcp –-dport 139 -j DNAT –-to 10.0.0.100:139
 iptables -A FORWARD -p tcp -d 10.0.0.100 –-dport 445 -j ACCEPT
 ```
    b. DNS: Para permitir que o serviço de resolução de nomes (DNS) esteja disponível externamente:
         * Porta: 53
-        * Interface Externa aqui é a WAN: enp0s3
+        * Interface Externa aqui é a WAN: ens160
         * IP do servidor nameserver1 = 10.0.0.10
         
 ```bash
 #Recebe pacotes na porta 53 da interface externa do gw e encaminha para o servidor DNS Master interno na porta 53
-iptables -A PREROUTING -t nat -i enp0s3 -p tcp –-dport 53 -j DNAT –-to 10.0.0.10:53
+iptables -A PREROUTING -t nat -i ens160 -p tcp –-dport 53 -j DNAT –-to 10.0.0.10:53
 iptables -A FORWARD -p udp -d 10.0.0.10 –-dport 53 -j ACCEPT
 ```
 
