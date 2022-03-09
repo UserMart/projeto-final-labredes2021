@@ -65,7 +65,7 @@ network:
                 addresses:
                    - 8.8.8.8              # IP do servidor de nomes 1, neste caso é o IP de DNS do google
                    - 8.8.4.4              # IP do servidor de nomes 2, neste caso é outro IP de DNS do google
-                search: [grupo5.turma924.ifalara.local]     # identificação do domínio, aqui neste caso está vazio.
+                search: [grupo5.turma924.ifalara.local]     # identificação do domínio, [grupo5.turma924.ifalara.local] é apenas um exemplo.
         ens192:
             addresses: [192.168.24.34/29]
 
@@ -162,7 +162,7 @@ $ sudo cp /etc/bind/db.empty /etc/bind/zones/db.grupo5.turma924.ifalara.local
 
 ; BIND data file for internal network
 ;
-$ORIGIN turma924.ifalara.local.
+$ORIGIN grupo5.turma924.ifalara.local.
 $TTL    3h
 @       IN      SOA     ns1.grupo5.turma924.ifalara.local. root.turma924.ifalara.local. (
                               1         ; Serial
@@ -203,8 +203,8 @@ $TTL    604800
 @      IN      NS      ns2.grupo5.turma924.ifalara.local.
 
 ; PTR Records
-10   IN      PTR     ns1.grupo5.turma924.ifalara.local.             ; 10.9.24.108
-11   IN      PTR     ns2.grupo5.turma924.ifalara.local.             ; 10.9.14.109
+108  IN      PTR     ns1.grupo5.turma924.ifalara.local.             ; 10.9.24.108
+109  IN      PTR     ns2.grupo5.turma924.ifalara.local.             ; 10.9.14.109
 100  IN      PTR     dh1.grupo5.turma924.ifalara.local.             ; 10.9.24.100
 1    IN      PTR     gw.grupo5.turma924.ifalara.local.              ; 10.9.24.1
 
@@ -457,7 +457,7 @@ $ sudo nano /etc/bind/named.conf.local
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "turma924.ifalara.local" {
+zone "grupo5.turma924.ifalara.local" {
         type slave;
         file "/etc/bind/zones/db.grupo5.turma924.ifalara.local";
         masters{ 10.9.24.109; };
@@ -479,38 +479,33 @@ $ sudo named-checkconf
 
 
 ```
-     $  dig @10.9.24.109 ns1.turma924.ifalara.local
+     $  dig @10.9.24.108 ns1.turma924.ifalara.local
 ```
 * Resultado Esperado
 
-```; <<>> DiG 9.11.3-1ubuntu1.9-Ubuntu <<>> @10.9.24.109 ns1.grupo5.turma924.ifalara.local
+```DiG 9.16.6-Ubuntu <<>> @10.9.24.108 ns1.grupo5.turma924.ifalara.local
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
 ;; WARNING: .local is reserved for Multicast DNS
 ;; You are currently testing what happens when an mDNS query is leaked to DNS
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15875
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16913
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 4096
-; COOKIE: 2ada115f11a1f1503fc446975da5644227f17494e73108e6 (good)
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 37b26c9fa0563fcd0100000062289c13785ba65a2d372215 (good)
 ;; QUESTION SECTION:
-;ns1.grupo5.turma924.ifalara.local. IN A
+;ns1.grupo5.turma924.ifalara.local. IN  A
 
 ;; ANSWER SECTION:
-ns1.grupo5.turma924.ifalara.local. 604800 IN A 10.0.0.10
-
-;; AUTHORITY SECTION:
-labredes.ifalarapiraca.local. 604800 IN NS  ns2.grupo5.turma924.ifalara.local.
-labredes.ifalarapiraca.local. 604800 IN NS  ns1.grupo5.turma924.ifalara.local.
-;; ADDITIONAL SECTION:
-ns2.grupo5.turma924.ifalara.local. 604800 IN A 10.9.24.109
+ns1.grupo5.turma924.ifalara.local. 10800 IN A   10.9.24.108
 
 ;; Query time: 0 msec
-;; SERVER: 10.9.24.109#53(10.9.24.109)
-;; WHEN: Tue Oct 15 06:16:34 UTC 2019
-;; MSG SIZE  rcvd: 153
+;; SERVER: 10.9.24.108#53(10.9.24.108)
+;; WHEN: Wed Mar 09 12:24:19 UTC 2022
+;; MSG SIZE  rcvd: 106
+
 ```
 
 
