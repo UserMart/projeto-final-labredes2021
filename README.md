@@ -35,7 +35,7 @@ Tabela 2: Nomes das Vm's
 | NameServer1 (ns1) | ns1.grupo5.labredes.ifalara.local           |
 | NameServer2 (ns2) | ns2.grupo5.labredes.ifalara.local           |
 | FQDN WEB          | www.grupo5.turma924.ifalara.local	          |	
-| FQDN BD           | bd.grupo5.turma924.ifalara.local		      |
+| FQDN BD           | bd.grupo5.turma924.ifalara.local            |
 ------------------------------------------------------------------
 
 ```
