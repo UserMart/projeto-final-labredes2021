@@ -586,30 +586,7 @@ $ sudo named-checkconf
 ```
 * Resultado Esperado
 
-```DiG 9.16.6-Ubuntu <<>> @10.9.24.108 ns1.grupo5.turma924.ifalara.local
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; WARNING: .local is reserved for Multicast DNS
-;; You are currently testing what happens when an mDNS query is leaked to DNS
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16913
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 37b26c9fa0563fcd0100000062289c13785ba65a2d372215 (good)
-;; QUESTION SECTION:
-;ns1.grupo5.turma924.ifalara.local. IN  A
-
-;; ANSWER SECTION:
-ns1.grupo5.turma924.ifalara.local. 10800 IN A   10.9.24.108
-
-;; Query time: 0 msec
-;; SERVER: 10.9.24.108#53(10.9.24.108)
-;; WHEN: Wed Mar 09 12:24:19 UTC 2022
-;; MSG SIZE  rcvd: 106
-
-```
+![Captura de Tela (105)](https://user-images.githubusercontent.com/86020329/158038656-8a08c7d7-f190-48a3-bf35-8e1579b59cb3.png)
 
 # 5. Configuração do servidor Gateway como NAT;
     
