@@ -445,6 +445,7 @@ MulticastDNS setting: no
 ```bash
 $ dig ns1.grupo5.turma924.ifalara.local
 ```
+![Captura de Tela (101)](https://user-images.githubusercontent.com/86020329/158037869-ea98bee2-c35c-43da-b921-c48396f081d6.png)
 
 ```
 ; <<>> DiG 9.16.8-Ubuntu <<>> ns1.grupo5.turma924.ifalara.local
