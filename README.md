@@ -44,7 +44,7 @@ Tabela 2: Nomes das Vm's
 
 ## 3. Realize a configuração estática do DNS na interface de rede nas VM's: ns1, ns2, samba e gateway;
 *  Na maquina ns1 faça as seguintes configurações;
-*  
+
 -  Depois edite o arquivo  ***00-installer-config.yaml*** com o seguinte comando:
 
 ```bash
@@ -77,7 +77,7 @@ $ sudo netplan apply
 $ ifconfig -a
 ```
 
-*  Na maquina ns2faça as seguintes configurações;
+*  Na maquina ns2 faça as seguintes configurações;
 
 -  Depois edite o arquivo  ***00-installer-config.yaml*** com o seguinte comando:
 
@@ -111,7 +111,73 @@ $ sudo netplan apply
 $ ifconfig -a
 ```
 
+*  Na maquina samba faça as seguintes configurações;
 
+-  Depois edite o arquivo  ***00-installer-config.yaml*** com o seguinte comando:
+
+```bash
+$ sudo nano /etc/netplan/00-installer-config.yaml
+```
+
+-  Adicione as linhas para a configuração estática do IP. [Baixe o arquivo 00-installer-config.yaml](https://github.com/alaelson/labredes2020/blob/master/network/interface-config/00-installer-config.yaml)
+
+```
+network:
+    ethernets:
+        ens160:                           # nome da interface que está sendo configurada. Verifique com o comando 'ifconfig -a'
+            addresses: [10.9.24.114/24]   # IP e Máscara do Host. Aqui é só um exemplo, tenha certeza do IP do seu host, ou perderá o acesso remoto.
+            gateway4: 10.9.24.1           # IP do Gateway, Aqui é só um exemplo, tenha certeza do IP do seu gateway, ou perderá o acesso remoto.
+            dhcp4: false                  # dhcp4 false -> cliente DHCP está desabilitado, logo o utilizará o IP do campo 'addresses'
+            nameservers:
+                addresses:
+                   - 10.9.24.108              # IP do servidor de nomes 1, neste caso é o IP ns1.
+                   - 10.9.24.109              # IP do servidor de nomes 2, neste caso é outro IP ns2.
+                search: [grupo5.turma924.ifalara.local]     # identificação do domínio, [grupo5.turma924.ifalara.local] é apenas um exemplo.
+        ens192:
+            addresses: [192.168.24.34/29]
+
+    version: 2
+```
+-  Após salvar o arquivo, aplique as novas configurações, com o **netplan apply**. Depois veja a configuração das interfaces com ****ifconfig -a***
+
+```bash
+$ sudo netplan apply
+$ ifconfig -a
+```
+
+*  Na maquina gateway faça as seguintes configurações;
+
+-  Depois edite o arquivo  ***00-installer-config.yaml*** com o seguinte comando:
+
+```bash
+$ sudo nano /etc/netplan/00-installer-config.yaml
+```
+
+-  Adicione as linhas para a configuração estática do IP. [Baixe o arquivo 00-installer-config.yaml](https://github.com/alaelson/labredes2020/blob/master/network/interface-config/00-installer-config.yaml)
+
+```
+network:
+    ethernets:
+        ens160:                           # nome da interface que está sendo configurada. Verifique com o comando 'ifconfig -a'
+            addresses: [10.9.24.117/24]  # IP e Máscara do Host. Aqui é só um exemplo, tenha certeza do IP do seu host, ou perderá o acesso remoto.
+            gateway4: 10.9.24.1           # IP do Gateway, Aqui é só um exemplo, tenha certeza do IP do seu gateway, ou perderá o acesso remoto.
+            dhcp4: false                  # dhcp4 false -> cliente DHCP está desabilitado, logo o utilizará o IP do campo 'addresses'
+            nameservers:
+                addresses:
+                   - 10.9.24.108              # IP do servidor de nomes 1, neste caso é o IP ns1.
+                   - 10.9.24.109              # IP do servidor de nomes 2, neste caso é outro IP ns2.
+                search: [grupo5.turma924.ifalara.local]     # identificação do domínio, [grupo5.turma924.ifalara.local] é apenas um exemplo.
+        ens192:
+            addresses: [192.168.24.33/29]
+
+    version: 2
+```
+-  Após salvar o arquivo, aplique as novas configurações, com o **netplan apply**. Depois veja a configuração das interfaces com ****ifconfig -a***
+
+```bash
+$ sudo netplan apply
+$ ifconfig -a
+```
 
 # 4. Implementação dos Serivços de Rede (Cada serviço uma sessão)
    ## *4.2 Confligurando o DNS Master:*
@@ -287,12 +353,6 @@ zone "24.9.10.in-addr.arpa" IN {
 $sudo named-checkconf
 ```
 
-```
-/etc/bind/named.conf.local:12: option 'masters' is not allowed in 'master' zone 'grupo5.turma924.ifalara.local'
-/etc/bind/named.conf.local:17: option 'masters' is not allowed in 'master' zone '24.9.10.in-addr.arpa'
-/etc/bind/named.conf.local:15: zone '24.9.10.in-addr.arpa': missing 'file' entry
-```
-
 ###  Verificar a sintaxe dos arquivos de dados
    * Para verificar se a formatação da sintaxe dos arquivos db, utiliza-se o script named-checkconf da seguinte forma: ***named-check-zone <zone> <db_file>***
 
@@ -327,7 +387,7 @@ $ sudo systemctl enable bind9
 $ sudo systemctl restart bind9
 ```
 
-### Configuração dos clientes
+### Configuração dos clientes;
    * Configure o dns no nas máquina ns1, ns2 e adicione os campos abaixo na interface de rede local (ens160) desses servidores.
 ```
             nameservers: 
@@ -490,6 +550,70 @@ $ sudo nano /etc/bind/named.conf.local
 // Do any local configuration here
 //
 
+- As zonas que a máquina com o slave vai copiar é:
+ #### zona direta: db.grupo5.turma924.ifalara.local
+      
+```bash   
+    $ sudo nano db.grupo5.turma924.ifalara.local
+```
+---
+```
+
+; BIND data file for internal network
+;
+$ORIGIN grupo5.turma924.ifalara.local.
+$TTL    3h
+@       IN      SOA     ns1.grupo5.turma924.ifalara.local. root.turma924.ifalara.local. (
+                              1         ; Serial
+                              3h        ; Refresh
+                              1h        ; Retry
+                              1w        ; Expire
+                              1h )      ; Negative Cache TTL
+;nameservers
+@       IN      NS      ns1.grupo5.turma924.ifalara.local.
+@       IN      NS      ns2.grupo5.turma924.ifalara.local.
+;hosts
+ns1.grupo5.turma924.ifalara.local.        IN    A       10.9.24.108
+ns2.grupo5.turma924.ifalara.local.        IN    A       10.9.24.109
+samba.grupo5.turma924.ifalara.local.      IN    A       10.9.24.114
+gw.grupo5.turma924.ifalara.local.         IN    A       10.9.24.117
+www.grupo5.turma924.ifalara.local.        IN    A       10.9.24.219
+bd.grupo5.turma924.ifalara.local.         IN    A       10.9.24.220
+
+```
+
+---
+   #### zona reversa: db.10.9.24.rev
+   
+---
+```
+;
+; BIND data file for internal network
+;
+;ORIGIN grupo5.turma924.ifalara.local.
+$TTL    60
+@       IN      SOA     ns1.grupo5.turma924.ifalara.local. root.turma924.ifalara.local. (
+                              2         ; Serial
+                              3h        ; Refresh
+                              1h        ; Retry
+                              1w        ; Expire
+                              1h )      ; Negative Cache TTL
+; name servers
+@       IN      NS      ns1.grupo5.turma924.ifalara.local.
+@       IN      NS      ns2.grupo5.turma924.ifalara.local.
+
+; PTR Records
+108      IN      PTR     ns1.grupo5.turma924.ifalara.local.       ;10.9.24.108
+109      IN      PTR     ns2.grupo5.turma924.ifalara.local.       ;10.9.24.109
+117      IN      PTR     samba.grupo5.turma924.ifalara.local.     ;10.9.24.114
+114      IN      PTR     gw.grupo5.turma924.ifalara.local.        ;10.9.24.117
+219      IN      PTR     www.grupo5.turma924.ifalara.local        ;10.9.24.219
+220      IN      PTR     bd.grupo5.turma924.ifalara.local         ;10.9.24.220
+
+```
+    
+    
+    
 // Consider adding the 1918 zones here, if they are not used in your
 // organization
 //include "/etc/bind/zones.rfc1918";
