@@ -399,7 +399,7 @@ $ sudo systemctl restart bind9
    * O arquivo de configuração do netplan ficará da seguinte forma:
 
 ```bash
-$ sudo nano /etc/netplan/50-cloud-init.yaml 
+$ sudo nano /etc/netplan/00-installer.yaml 
 
 network:
     ethernets:
@@ -530,8 +530,6 @@ $ dig -x 10.9.24.109
 ```bash
 $ sudo apt-get install bind9 dnsutils bind9-doc -y
 ```
-
-
    * Verifique o status do serviço:
 ```bash
 $ sudo systemctl status bind9
@@ -551,12 +549,15 @@ $ sudo nano /etc/bind/named.conf.local
 //
 
 - As zonas que a máquina com o slave vai copiar é:
- #### zona direta: db.grupo5.turma924.ifalara.local
-      
+```    
+---
+   #### zona direta: db.grupo5.turma924.ifalara.local
+---   
+```   
 ```bash   
     $ sudo nano db.grupo5.turma924.ifalara.local
 ```
----
+    
 ```
 
 ; BIND data file for internal network
@@ -584,8 +585,8 @@ bd.grupo5.turma924.ifalara.local.         IN    A       10.9.24.220
 
 ---
    #### zona reversa: db.10.9.24.rev
-   
 ---
+    
 ```
 ;
 ; BIND data file for internal network
