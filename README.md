@@ -463,30 +463,9 @@ $ dig -x 10.9.24.108
 ```bash  
 $ dig -x 10.9.24.109
 ```
-```
-; <<>> DiG 9.11.3-1ubuntu1.9-Ubuntu <<>> -x 10.9.24.109
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 56462
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+![Captura de Tela (104)](https://user-images.githubusercontent.com/86020329/158038512-fc9dd972-6483-4a94-a8ab-84d5783a724c.png)
 
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 65494
-;; QUESTION SECTION:
-;109.24.9.10.in-addr.arpa.		IN	PTR
-
-;; ANSWER SECTION:
-109.24.9.10.in-addr.arpa.	6177	IN	PTR	ns2.grupo5.turma924.ifalara.local.
-
-;; Query time: 0 msec
-;; SERVER: 127.0.0.53#53(127.0.0.53)
-;; WHEN: Sun Feb 27 02:58:43 UTC 2022
-;; MSG SIZE  rcvd: 97
-```
 ---
-
-
-
   ### *4.2 Confligurando o DNS Slave:*
    * Primeiro é preciso instalar e para isso usa-se o comando:
 ```bash
@@ -603,7 +582,7 @@ $ sudo named-checkconf
 
 
 ```
-     $  dig @10.9.24.108 ns1.turma924.ifalara.local
+     $  dig @10.9.24.108 ns1.grupo5.turma924.ifalara.local
 ```
 * Resultado Esperado
 
