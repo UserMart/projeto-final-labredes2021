@@ -43,11 +43,8 @@ Tabela 2: Nomes das Vm's
 ```
 
 ## 3. Realize a configuração estática do DNS na interface de rede nas VM's: ns1, ns2, samba e gateway;
-* Para que a máquina acesse os sites e hosts remotos por meio de nomes (Ex. www.google.com) é necessário adcionar os nameservers na configuração da interface de rede.
-* Logo, configure o arquivo YAML que encontra-se na pasta **/etc/netplan/**.
-* Verifique o nome correto do arquivo no seu servidor. No exemplo a seguir, o nome do arquivo é  ***00-installer-config.yaml***
-
-
+*  Na maquina ns1 faça as seguintes configurações;
+*  
 -  Depois edite o arquivo  ***00-installer-config.yaml*** com o seguinte comando:
 
 ```bash
@@ -65,11 +62,11 @@ network:
             dhcp4: false                  # dhcp4 false -> cliente DHCP está desabilitado, logo o utilizará o IP do campo 'addresses'
             nameservers:
                 addresses:
-                   - 8.8.8.8              # IP do servidor de nomes 1, neste caso é o IP de DNS do google
-                   - 8.8.4.4              # IP do servidor de nomes 2, neste caso é outro IP de DNS do google
+                   - 10.9.24.108              # IP do servidor de nomes 1, neste caso é o IP ns1.
+                   - 10.9.24.109              # IP do servidor de nomes 2, neste caso é outro IP ns2.
                 search: [grupo5.turma924.ifalara.local]     # identificação do domínio, [grupo5.turma924.ifalara.local] é apenas um exemplo.
         ens192:
-            addresses: [192.168.24.34/29]
+            addresses: [192.168.24.35/29]
 
     version: 2
 ```
@@ -79,6 +76,41 @@ network:
 $ sudo netplan apply
 $ ifconfig -a
 ```
+
+*  Na maquina ns2faça as seguintes configurações;
+
+-  Depois edite o arquivo  ***00-installer-config.yaml*** com o seguinte comando:
+
+```bash
+$ sudo nano /etc/netplan/00-installer-config.yaml
+```
+
+-  Adicione as linhas para a configuração estática do IP. [Baixe o arquivo 00-installer-config.yaml](https://github.com/alaelson/labredes2020/blob/master/network/interface-config/00-installer-config.yaml)
+
+```
+network:
+    ethernets:
+        ens160:                           # nome da interface que está sendo configurada. Verifique com o comando 'ifconfig -a'
+            addresses: [10.9.24.109/24]  # IP e Máscara do Host. Aqui é só um exemplo, tenha certeza do IP do seu host, ou perderá o acesso remoto.
+            gateway4: 10.9.24.1           # IP do Gateway, Aqui é só um exemplo, tenha certeza do IP do seu gateway, ou perderá o acesso remoto.
+            dhcp4: false                  # dhcp4 false -> cliente DHCP está desabilitado, logo o utilizará o IP do campo 'addresses'
+            nameservers:
+                addresses:
+                   - 10.9.24.108              # IP do servidor de nomes 1, neste caso é o IP ns1.
+                   - 10.9.24.109              # IP do servidor de nomes 2, neste caso é outro IP ns2.
+                search: [grupo5.turma924.ifalara.local]     # identificação do domínio, [grupo5.turma924.ifalara.local] é apenas um exemplo.
+        ens192:
+            addresses: [192.168.24.36/29]
+
+    version: 2
+```
+-  Após salvar o arquivo, aplique as novas configurações, com o **netplan apply**. Depois veja a configuração das interfaces com ****ifconfig -a***
+
+```bash
+$ sudo netplan apply
+$ ifconfig -a
+```
+
 
 
 # 4. Implementação dos Serivços de Rede (Cada serviço uma sessão)
