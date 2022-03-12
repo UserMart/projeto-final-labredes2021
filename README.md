@@ -446,33 +446,11 @@ MulticastDNS setting: no
 $ dig ns1.grupo5.turma924.ifalara.local
 ```
 ![Captura de Tela (101)](https://user-images.githubusercontent.com/86020329/158037869-ea98bee2-c35c-43da-b921-c48396f081d6.png)
-
-```
-; <<>> DiG 9.16.8-Ubuntu <<>> ns1.grupo5.turma924.ifalara.local
-;; global options: +cmd
-;; Got answer:
-;; WARNING: .local is reserved for Multicast DNS
-;; You are currently testing what happens when an mDNS query is leaked to DNS
-;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 14347
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 65494
-;; QUESTION SECTION:
-;ns1.grupo5.turma924.ifalara.local. IN  A
-
-;; ANSWER SECTION:
-ns1.grupo5.turma924.ifalara.local. 5204 IN A	10.9.24.108
-   
-;; Query time: 0 msec
-;; SERVER: 127.0.0.53#53(127.0.0.53)
-;; WHEN: Sun Feb 27 02:47:03 UTC 2022
-;; MSG SIZE  rcvd: 62
-
-
-```
+    
 ---
-
+$ dig ns2.grupo5.turma924.ifalara.local
+![Captura de Tela (102)](https://user-images.githubusercontent.com/86020329/158038197-906d2e9b-3d55-4e12-bbac-36c8cfd17617.png)
+    
 #### Teste o serviço DNS reverso para a máquina ns1. 
 ```bash    
 $ dig -x 10.9.24.108
