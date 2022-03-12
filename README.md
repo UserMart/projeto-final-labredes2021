@@ -25,6 +25,8 @@ Tabela 1: IP's
 |ns2|10.9.24.109
 |samba|10.9.24.114
 |gw|10.9.24.117
+|www|10.9.24.219
+|db|10.9.24.220
 
 
 Tabela 2: Nomes das Vm's
