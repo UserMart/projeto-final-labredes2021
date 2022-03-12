@@ -455,29 +455,9 @@ $ dig ns2.grupo5.turma924.ifalara.local
 ```bash    
 $ dig -x 10.9.24.108
 ```
-```
-  dig -x 10.9.24.108
-
-; <<>> DiG 9.16.8-Ubuntu <<>> -x 10.9.24.108
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 9764
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 65494
-;; QUESTION SECTION:
-;108.24.9.10.in-addr.arpa.      IN      PTR
-
-;; ANSWER SECTION:
-108.24.9.10.in-addr.arpa. 0     IN      PTR     ns1.grupo5.turma924.ifalara.local.
     
-;; Query time: 79 msec
-;; SERVER: 127.0.0.53#53(127.0.0.53)
-;; WHEN: Sun Feb 27 02:48:22 UTC 2022
-;; MSG SIZE  rcvd: 158
+![Captura de Tela (103)](https://user-images.githubusercontent.com/86020329/158038336-650c46f0-0398-4904-a35d-7ec165b51b56.png)
 
-```
 ---
 #### Teste o serviço DNS reverso para a máquina ns2. 
 ```bash  
