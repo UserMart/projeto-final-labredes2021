@@ -21,8 +21,10 @@ Tabela 1: IP's
 |Máscara|255.255.255
 |Gateway|10.9.24.1
 |Broadcast|10.9.24.255
-|ns1|10.9.24.114
+|ns1|10.9.24.108
+|ns2|10.9.24.109
 |samba|10.9.24.114
+|gw|10.9.24.117
 
 
 Tabela 2: Nomes das Vm's
