@@ -42,7 +42,7 @@ Tabela 2: Nomes das Vm's
 
 ```
 
-## 3. Realize a configuração estática do DNS na interface de rede do Ubuntu-Server;
+## 3. Realize a configuração estática do DNS na interface de rede nas VM's: ns1, ns2, samba e gateway;
 * Para que a máquina acesse os sites e hosts remotos por meio de nomes (Ex. www.google.com) é necessário adcionar os nameservers na configuração da interface de rede.
 * Logo, configure o arquivo YAML que encontra-se na pasta **/etc/netplan/**.
 * Verifique o nome correto do arquivo no seu servidor. No exemplo a seguir, o nome do arquivo é  ***00-installer-config.yaml***
