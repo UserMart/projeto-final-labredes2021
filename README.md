@@ -590,7 +590,7 @@ $ sudo named-checkconf
 
 
 # 5. Configuração do Web LAMP (Linux+Apache+PHP+Mysql);
-    ## Instalação 
+    ## Instalação do apache;
    * Apache é o servidor HTTP mais utilizado no mundo, e tem distribuições para diversos sistemas operacionais.
    * Neste roteiro utilizaremos o Ubuntu Server 20.04.4 LTS
    * É sempre recomendado atualizar os pacotes de repositórios e software:
@@ -607,6 +607,48 @@ $systemctl status apache2
 ```
 ![Captura de Tela (107)](https://user-images.githubusercontent.com/86020329/158045431-3b7db591-a261-4fc1-a787-42866dcdfb78.png)
 
+```bash
+$ sudo systemctl enable apache2
+
+ Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable apache2
+```   
+ ```bash
+$ ls -la /etc/apache2/
+```
+![Captura de Tela (108)](https://user-images.githubusercontent.com/86020329/158046051-79ce8ba4-d4cd-443a-92ab-214ce9ee6691.png)
+
+ ## Resultado página web:
+    ![Captura de Tela (110)](https://user-images.githubusercontent.com/86020329/158049098-06be99b5-9d8d-4d2b-bd47-8ae228734dae.png)
+
+   
+ # Instalação do PHP7; 
+   * O PHP7.4 é a versão mais recente do PHP7, é estável e é a versão mais utilizada para aplicações Web baseadas em PHP. Para informações e outras versões do PHP consulte a página [php.net](https://www.php.net/).
+   * Neste roteiro utilizaremos o Ubuntu Server 20.04.4 LTS
+   * É sempre recomendado atualizar os pacotes de repositórios e software:
+```bash
+$ sudo apt update | sudo apt upgrade -y
+```
+   * Para instalar o php7.4 digite:
+```bash
+$ sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-cli php7.4-common php7.4-common php7.4-json php7.4-opcache php7.4-readline
+```
+   * Carregue php7.4 no apache2 e reinicio o serviço.
+
+```bash
+sudo a2enmod php7.4
+
+sudo systemctl restart apache2
+``` 
+    
+    
+ ## Resultado do PHP7:
+    ![Captura de Tela (112)](https://user-images.githubusercontent.com/86020329/158049145-91c2b58a-d4eb-42ea-a198-16d4a39ab5eb.png)
+
+ # Virtual-Host resultado:
+    ![Captura de Tela (113)](https://user-images.githubusercontent.com/86020329/158050169-0ff345da-a2a2-4e77-9338-305e71c17d21.png)
+    
+    
     
 # 6. Configuração do servidor Gateway como NAT;
     
@@ -651,9 +693,9 @@ $ sudo nano /etc/netplan/50-cloud-init.yaml
 ```
 network:
     ethernets:
-        enp0s3:
+        ens160:
             dhcp4: true
-        enp0s8:
+        ens192:
             addresses: [10.0.0.1/24]
             dhcp4: false              
     version: 2
