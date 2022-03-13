@@ -588,7 +588,25 @@ $ sudo named-checkconf
 
 ![Captura de Tela (105)](https://user-images.githubusercontent.com/86020329/158038656-8a08c7d7-f190-48a3-bf35-8e1579b59cb3.png)
 
-# 5. Configuração do servidor Gateway como NAT;
+
+# 5. Configuração do Web LAMP (Linux+Apache+PHP+Mysql);
+    ## Instalação 
+   * Apache é o servidor HTTP mais utilizado no mundo, e tem distribuições para diversos sistemas operacionais.
+   * Neste roteiro utilizaremos o Ubuntu Server 20.04.4 LTS
+   * É sempre recomendado atualizar os pacotes de repositórios e software:
+```bash
+$ sudo apt update | sudo apt upgrade -y
+```
+   * Para instalar o apache digite:
+```bash
+$ sudo apt install -y apache2 apache2-utils
+```
+   * Verifique o status do serviço:
+```bash
+$systemctl status apache2
+```
+    
+# 6. Configuração do servidor Gateway como NAT;
     
    * A configuração se inicia quando configuramos um servidor como gateway de rede, para isso é necessário configurar o firewall do linux (iptables). 
    * Iptables tem regras e podem ser digitadas no terminal ou podem ser executadas em um script.
