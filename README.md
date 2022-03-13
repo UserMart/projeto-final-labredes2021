@@ -637,15 +637,15 @@ $ sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-c
 
 ```bash
 sudo a2enmod php7.4
-
 sudo systemctl restart apache2
-``` 
-    
+```
     
  ## Resultado do PHP7:
+    
     ![Captura de Tela (112)](https://user-images.githubusercontent.com/86020329/158049145-91c2b58a-d4eb-42ea-a198-16d4a39ab5eb.png)
 
  # Virtual-Host resultado:
+    
     ![Captura de Tela (113)](https://user-images.githubusercontent.com/86020329/158050169-0ff345da-a2a2-4e77-9338-305e71c17d21.png)
     
     
