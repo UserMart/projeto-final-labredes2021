@@ -709,22 +709,13 @@ $ sudo reboot
 ```
    10º. Nas máquinas SAMBA, NS1 e NS2 ativar o gateway (gateway4: 10.0.0.1) na interface de rede:
 ```bash
-$ sudo nano /etc/netplan/50-cloud-init.yaml
+$ sudo nano /etc/netplan/00--installer.yaml
 ```
 ```
-network:
-    ethernets:
-        enp0s3:
-            addresses: [10.9.24.117/24]
-            gateway4: 10.0.0.1
-            dhcp4: false
-            nameservers:
-                addresses:
-                - 8.8.8.8
-                - 8.8.4.4
-                search: [gw.grupo5.turma924.ifalara.local]
-    version: 2
+    Ativando o gateway na ns1;
 ```
+    
+![Captura de Tela (106)](https://user-images.githubusercontent.com/86020329/158039382-443b7597-5cff-4b1a-9823-ed7e58365d07.png)
 
 
 ```bash
