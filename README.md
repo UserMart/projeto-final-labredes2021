@@ -612,14 +612,11 @@ $ sudo systemctl enable apache2
 
  Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable apache2
-```   
- ```bash
-$ ls -la /etc/apache2/
 ```
 ![Captura de Tela (108)](https://user-images.githubusercontent.com/86020329/158046051-79ce8ba4-d4cd-443a-92ab-214ce9ee6691.png)
 
  ## Resultado página web:
-    ![Captura de Tela (110)](https://user-images.githubusercontent.com/86020329/158049098-06be99b5-9d8d-4d2b-bd47-8ae228734dae.png)
+ ![Captura de Tela (110)](https://user-images.githubusercontent.com/86020329/158049098-06be99b5-9d8d-4d2b-bd47-8ae228734dae.png)
 
    
  # Instalação do PHP7; 
@@ -635,18 +632,14 @@ $ sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-c
 ```
    * Carregue php7.4 no apache2 e reinicio o serviço.
 
-```bash
-sudo a2enmod php7.4
-sudo systemctl restart apache2
-```
-    
+
  ## Resultado do PHP7:
     
-    ![Captura de Tela (112)](https://user-images.githubusercontent.com/86020329/158049145-91c2b58a-d4eb-42ea-a198-16d4a39ab5eb.png)
+ ![Captura de Tela (112)](https://user-images.githubusercontent.com/86020329/158049145-91c2b58a-d4eb-42ea-a198-16d4a39ab5eb.png)
 
  # Virtual-Host resultado:
     
-    ![Captura de Tela (113)](https://user-images.githubusercontent.com/86020329/158050169-0ff345da-a2a2-4e77-9338-305e71c17d21.png)
+ ![Captura de Tela (113)](https://user-images.githubusercontent.com/86020329/158050169-0ff345da-a2a2-4e77-9338-305e71c17d21.png)
     
     
     
