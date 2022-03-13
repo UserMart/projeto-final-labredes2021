@@ -605,6 +605,8 @@ $ sudo apt install -y apache2 apache2-utils
 ```bash
 $systemctl status apache2
 ```
+![Captura de Tela (107)](https://user-images.githubusercontent.com/86020329/158045431-3b7db591-a261-4fc1-a787-42866dcdfb78.png)
+
     
 # 6. Configuração do servidor Gateway como NAT;
     
