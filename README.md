@@ -806,6 +806,12 @@ iptables -A FORWARD -p tcp -d 10.0.0.100 –-dport 445 -j ACCEPT
 iptables -A PREROUTING -t nat -i ens160 -p tcp –-dport 53 -j DNAT –-to 10.0.0.10:53
 iptables -A FORWARD -p udp -d 10.0.0.10 –-dport 53 -j ACCEPT
 ```
+  
+ ## Resultado do Samba;
+ 
+    ![WhatsApp Image 2022-03-16 at 10 21 00](https://user-images.githubusercontent.com/86020329/158603019-9244dd9c-af60-4da7-9741-e22459a36b71.jpeg)
 
+```
+    É só faz o login que foi cadastrado na hora da configuração e terá acesso ao arquivo e poderá compartilhar;
 
 ## Considerações Finais
