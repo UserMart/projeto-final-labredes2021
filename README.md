@@ -808,10 +808,11 @@ iptables -A FORWARD -p udp -d 10.0.0.10 –-dport 53 -j ACCEPT
 ```
   
  ## Resultado do Samba;
+```
+    É só faz o login que foi cadastrado na hora da configuração e terá acesso ao arquivo e poderá compartilhar;
+```
  
     ![WhatsApp Image 2022-03-16 at 10 21 00](https://user-images.githubusercontent.com/86020329/158603019-9244dd9c-af60-4da7-9741-e22459a36b71.jpeg)
 
-```
-    É só faz o login que foi cadastrado na hora da configuração e terá acesso ao arquivo e poderá compartilhar;
 
 ## Considerações Finais
