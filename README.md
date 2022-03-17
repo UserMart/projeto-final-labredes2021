@@ -639,7 +639,7 @@ $ sudo apt install php7.4 libapache2-mod-php7.4 php7.4-mysql php-common php7.4-c
 
  # Virtual-Host resultado:
     
- ![Captura de Tela (113)](https://user-images.githubusercontent.com/86020329/158050169-0ff345da-a2a2-4e77-9338-305e71c17d21.png)
+ ![WhatsApp Image 2022-03-17 at 10 35 43](https://user-images.githubusercontent.com/86020329/158822838-040226b6-54d6-4449-8726-023c37ac3898.jpeg)
     
     
     
@@ -815,7 +815,7 @@ iptables -A FORWARD -p udp -d 10.0.0.10 –-dport 53 -j ACCEPT
     
     
 ![WhatsApp Image 2022-03-16 at 10 21 00](https://user-images.githubusercontent.com/86020329/158603019-9244dd9c-af60-4da7-9741-e22459a36b71.jpeg)
-
-
+   
+    
 ## Considerações Finais
 A intenção maior deste projeto foi introduzir o uso dos conhecimentos passados em aulas síncronas e assíncronas, fazer algumas implementações sobre: Configuuração de interfaces de redes, Configuração do SAMBA, Configuração do DNS (master e slave), Configuração e instalação do Web LAMP (Linux+Apache+PHP+Mysql) e por fim Configuração do gateway server/NAT. O projeto visa acima de tudo o aprimoramento do trabalho em equipe, onde juntos ficamos mais fortes ao usar as máquinas virtuais dada pelo professor/mentor: Alaelson Jatobá. Fica os agradecimentos pelo o suporte dado a este professor! Esse projeto foi feito com muita dedicação e esforço! 
