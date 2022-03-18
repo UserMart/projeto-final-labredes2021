@@ -443,28 +443,71 @@ MulticastDNS setting: no
 #### Teste o serviço DNS para a máquina ns1. 
    * Veja a resposta em **ANSWER SECTION**.
 ```bash
-$ dig ns1.grupo5.turma924.ifalara.local
+$ dig ns1.grupo5.turma924.ifalara.local @ns1
 ```
-![Captura de Tela (101)](https://user-images.githubusercontent.com/86020329/158037869-ea98bee2-c35c-43da-b921-c48396f081d6.png)
+![dig x NS1  pngddd](https://user-images.githubusercontent.com/86020329/158941361-eb8fce4c-4db2-400e-bb2c-523594e0521d.png)
     
 ---
-$ dig ns2.grupo5.turma924.ifalara.local
-![Captura de Tela (102)](https://user-images.githubusercontent.com/86020329/158038197-906d2e9b-3d55-4e12-bbac-36c8cfd17617.png)
+```bash    
+$ dig ns2.grupo5.turma924.ifalara.local @ns1
+```  
+![Captura de Tela (119)](https://user-images.githubusercontent.com/86020329/158928853-0e3b5b44-a1ee-41e5-9747-ee004a465ced.png)
+
+```bash     
+dig ns2.grupo5.turma924.ifalara.local @ns1
+```
+   
+![dig ns2 grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158942029-161e5faa-01df-4604-b4c4-5386e207fb54.png)
+
+```bash 
+$ dig gw.grupo5.turma924.ifalara.local @ns1
+```
+    
+![```bash](https://user-images.githubusercontent.com/86020329/158942277-45f31213-bd35-4ee8-9723-2b087f5916f4.png)
+    
+
+```bash     
+$ dig samba.grupo5.turma924.ifalara.local @ns1
+```
+
+![dig samba grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943040-778b269e-50fc-4be4-91a0-4223ca2985d9.png)
+
+    
+```bash     
+$ dig www.grupo5.turma924.ifalara.local @ns1
+```
+
+![dig www grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943191-1180f0eb-135b-4f89-9597-7425a5063f06.png)    
+    
+ 
+ ```bash    
+$ dig bd.grupo5.turma924.ifalara.local @ns1
+```
+    
+![dig bd grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943588-76e83795-9d62-4943-94f9-de36bcdc4d73.png)   
+    
     
 #### Teste o serviço DNS reverso para a máquina ns1. 
 ```bash    
-$ dig -x 10.9.24.108
+$ dig -x 10.9.24.108 @ns1.grupo5.turma924.ifalara.local
 ```
+ 
+![dig x NS1 ](https://user-images.githubusercontent.com/86020329/158938815-2364ef1f-a1b3-4b74-b7ca-1efaa47b2be2.png)
+ 
+ 
     
-![Captura de Tela (103)](https://user-images.githubusercontent.com/86020329/158038336-650c46f0-0398-4904-a35d-7ec165b51b56.png)
-
+    
 ---
-#### Teste o serviço DNS reverso para a máquina ns2. 
-```bash  
-$ dig -x 10.9.24.109
-```
-![Captura de Tela (104)](https://user-images.githubusercontent.com/86020329/158038512-fc9dd972-6483-4a94-a8ab-84d5783a724c.png)
 
+    
+![corte](https://user-images.githubusercontent.com/86020329/158938452-57a0fa54-90a8-487a-b0f6-5e1a707f1560.png)
+    
+```bash  
+$  dig samba.grupo5.turma924.ifalara.local @10.9.24.109
+``` 
+
+![Captura de Tela (128)](https://user-images.githubusercontent.com/86020329/158937135-e3ec1299-6777-4306-ad64-a6ea0d2b3d5e.png)    
+    
 ---
   ### *4.2 Confligurando o DNS Slave:*
    * Primeiro é preciso instalar e para isso usa-se o comando:
