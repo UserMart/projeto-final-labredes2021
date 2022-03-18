@@ -852,24 +852,48 @@ iptables -A FORWARD -p udp -d 10.0.0.10 –-dport 53 -j ACCEPT
   
  # RESULTADOS DE ALGUNS TESTES;
  ## Banco de Dados e preenchendo o SITE DEMO dado pelo o Professor;   
-    ```bash
-    Inserindo no banco;
-    ```
-
-    ![insert jpg email](https://user-images.githubusercontent.com/86020329/158947426-87a3767e-d11b-4759-9eec-e5f3af8d5bee.jpg)
+```
+Inserindo no banco;
+``` 
     
-    ![insert jpg into2](https://user-images.githubusercontent.com/86020329/158947040-39c3a9d5-c0fa-48d4-9c57-2607d211bc8c.jpg)
+    
+    
+ ![insert jpg email](https://user-images.githubusercontent.com/86020329/158947426-87a3767e-d11b-4759-9eec-e5f3af8d5bee.jpg)    
+    
+   
+    
+    
+    
+    
+    
+![insert jpg into2](https://user-images.githubusercontent.com/86020329/158947040-39c3a9d5-c0fa-48d4-9c57-2607d211bc8c.jpg)
 
  
-    ```bash
-    Consultando o Banco
-    ```
+```
+Consultando o Banco
+```
  
-    ![botoesphp](https://user-images.githubusercontent.com/86020329/158947768-c9ac4bcc-2aa0-4e13-8db8-df5c39fef26a.jpg)    
-        
-    ![consulta2](https://user-images.githubusercontent.com/86020329/158947664-63ed57c7-19f0-4802-ba48-d038c853d5cd.jpg)
+    
+    
+![botoesphp](https://user-images.githubusercontent.com/86020329/158947768-c9ac4bcc-2aa0-4e13-8db8-df5c39fef26a.jpg)    
+    
+    
+    
+    
+    
+    
+    
+    
+![consulta2](https://user-images.githubusercontent.com/86020329/158947664-63ed57c7-19f0-4802-ba48-d038c853d5cd.jpg)
 
-    ![consulta3](https://user-images.githubusercontent.com/86020329/158947661-5f3cd074-6691-46fa-89dc-1c8687512504.jpg)
+    
+    
+    
+    
+    
+   
+    
+![consulta3](https://user-images.githubusercontent.com/86020329/158947661-5f3cd074-6691-46fa-89dc-1c8687512504.jpg)
 
     
     
