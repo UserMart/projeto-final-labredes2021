@@ -440,75 +440,7 @@ MulticastDNS setting: no
           DNS Domain: grupo5.turma924.ifalara.local
 ```
 ---
-#### Teste o serviço DNS para a máquina ns1. 
-   * Veja a resposta em **ANSWER SECTION**.
-```bash
-$ dig ns1.grupo5.turma924.ifalara.local @ns1
-```
-![dig x NS1  pngddd](https://user-images.githubusercontent.com/86020329/158941361-eb8fce4c-4db2-400e-bb2c-523594e0521d.png)
     
----
-```bash    
-$ dig ns2.grupo5.turma924.ifalara.local @ns1
-```  
-![Captura de Tela (119)](https://user-images.githubusercontent.com/86020329/158928853-0e3b5b44-a1ee-41e5-9747-ee004a465ced.png)
-
-```bash     
-dig ns2.grupo5.turma924.ifalara.local @ns1
-```
-   
-![dig ns2 grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158942029-161e5faa-01df-4604-b4c4-5386e207fb54.png)
-
-```bash 
-$ dig gw.grupo5.turma924.ifalara.local @ns1
-```
-    
-![```bash](https://user-images.githubusercontent.com/86020329/158942277-45f31213-bd35-4ee8-9723-2b087f5916f4.png)
-    
-
-```bash     
-$ dig samba.grupo5.turma924.ifalara.local @ns1
-```
-
-![dig samba grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943040-778b269e-50fc-4be4-91a0-4223ca2985d9.png)
-
-    
-```bash     
-$ dig www.grupo5.turma924.ifalara.local @ns1
-```
-
-![dig www grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943191-1180f0eb-135b-4f89-9597-7425a5063f06.png)    
-    
- 
- ```bash    
-$ dig bd.grupo5.turma924.ifalara.local @ns1
-```
-    
-![dig bd grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943588-76e83795-9d62-4943-94f9-de36bcdc4d73.png)   
-    
-    
-#### Teste o serviço DNS reverso para a máquina ns1. 
-```bash    
-$ dig -x 10.9.24.108 @ns1.grupo5.turma924.ifalara.local
-```
- 
-![dig x NS1 ](https://user-images.githubusercontent.com/86020329/158938815-2364ef1f-a1b3-4b74-b7ca-1efaa47b2be2.png)
- 
- 
-    
-    
----
-
-    
-![corte](https://user-images.githubusercontent.com/86020329/158938452-57a0fa54-90a8-487a-b0f6-5e1a707f1560.png)
-    
-```bash  
-$  dig samba.grupo5.turma924.ifalara.local @10.9.24.109
-``` 
-
-![Captura de Tela (128)](https://user-images.githubusercontent.com/86020329/158937135-e3ec1299-6777-4306-ad64-a6ea0d2b3d5e.png)    
-    
----
   ### *4.2 Confligurando o DNS Slave:*
    * Primeiro é preciso instalar e para isso usa-se o comando:
 ```bash
@@ -907,6 +839,219 @@ Consultando o Banco
     
 ![WhatsApp Image 2022-03-16 at 10 21 00](https://user-images.githubusercontent.com/86020329/158603019-9244dd9c-af60-4da7-9741-e22459a36b71.jpeg)
    
+## Resultado de testes das implementações;
+#### Teste dos serviços NS1 ; 
+   * Veja a resposta em **ANSWER SECTION**.
+```
+$ dig ns1.grupo5.turma924.ifalara.local @ns1
+```
+![dig x NS1  pngddd](https://user-images.githubusercontent.com/86020329/158941361-eb8fce4c-4db2-400e-bb2c-523594e0521d.png)
+    
+---
+    
+```     
+dig ns2.grupo5.turma924.ifalara.local @ns1
+```
+   
+![dig ns2 grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158942029-161e5faa-01df-4604-b4c4-5386e207fb54.png)
+
+``` 
+$ dig gw.grupo5.turma924.ifalara.local @ns1
+```
+    
+![```bash](https://user-images.githubusercontent.com/86020329/158942277-45f31213-bd35-4ee8-9723-2b087f5916f4.png)
+    
+
+```     
+$ dig samba.grupo5.turma924.ifalara.local @ns1
+```
+
+![dig samba grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943040-778b269e-50fc-4be4-91a0-4223ca2985d9.png)
+
+    
+```     
+$ dig www.grupo5.turma924.ifalara.local @ns1
+```
+
+![dig www grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943191-1180f0eb-135b-4f89-9597-7425a5063f06.png)    
+    
+ 
+ ```    
+$ dig bd.grupo5.turma924.ifalara.local @ns1
+```
+    
+![dig bd grupo5 turma924 ifalara local @ns1](https://user-images.githubusercontent.com/86020329/158943588-76e83795-9d62-4943-94f9-de36bcdc4d73.png)   
+    
+## Teste dos serviços de forma reversa NS1;
+   * Veja a resposta em **ANSWER SECTION**.
+    
+```    
+$ dig -x 10.9.24.108 @ns1
+```
+    
+![dig 108](https://user-images.githubusercontent.com/86020329/159051864-f091eba4-5b59-40df-ab7b-7b1f3980bfca.PNG)
+
+```    
+$ dig -x 10.9.24.109 @ns1
+```    
+    
+![dig 109](https://user-images.githubusercontent.com/86020329/159051983-d7116f26-72fd-4715-92e7-837e3fed73c7.PNG)
+    
+ ```    
+$ dig -x 10.9.24.114 @ns1
+```   
+![dig 114](https://user-images.githubusercontent.com/86020329/159052120-4fae0f10-9ad3-43aa-84d5-37fe45c1eab0.PNG)
+
+```    
+$ dig -x 10.9.24.117 @ns1
+```     
+![dig 117](https://user-images.githubusercontent.com/86020329/159052327-edcedf9b-4b9e-4c78-b444-8cab487e1edd.PNG)
+
+    
+ ```    
+$ dig -x 10.9.24.219 @ns1
+```
+ ![dig 219](https://user-images.githubusercontent.com/86020329/159052391-3144de24-0818-40c0-afee-743d4cc2b044.PNG)
+
+ ```    
+$ dig -x 10.9.24.220 @ns1
+```      
+![dig 220](https://user-images.githubusercontent.com/86020329/159052470-9b94a3eb-158e-4942-804d-07323be4fc50.PNG)
+
+      
+#### Teste dos serviços NS2;. 
+   * Veja a resposta em **ANSWER SECTION**.
+
+```    
+$ dig ns1.grupo5.turma924.ifalara.local @ns2
+```
+
+![dig ns1 grupo5 turma924 ifalara local @ns2](https://user-images.githubusercontent.com/86020329/159041850-39400d02-5ac5-4aa4-acdc-986130b40b44.PNG)
+    
+```    
+$ dig ns2.grupo5.turma924.ifalara.local @ns2
+```    
+
+![dig ns2 grupo5 turma924 ifalara local @ns2](https://user-images.githubusercontent.com/86020329/159046089-afd67179-78aa-4f01-b5b0-3de6bf925d49.PNG)
+    
+```    
+$ dig gw.grupo5.turma924.ifalara.local @ns2
+```      
+![dig gw grupo5 turma924 ifalara local @ns2](https://user-images.githubusercontent.com/86020329/159046259-1117b565-0f7d-45a2-ac62-0c872845b9e8.PNG)    
+    
+```   
+$ dig samba.grupo5.turma924.ifalara.local @ns2
+```     
+![dig samba grupo5 turma924 ifalara local @ns2](https://user-images.githubusercontent.com/86020329/159046539-3fc62d9b-bd5b-44f9-aa9f-db64fb40fd77.PNG)
+
+```    
+$ dig www.grupo5.turma924.ifalara.local @ns2
+```         
+![dig www grupo5 turma924 ifalara local @ns2](https://user-images.githubusercontent.com/86020329/159046663-1f1e5823-b672-42ed-a6ec-837663d6053a.PNG)
+
+```   
+$ dig bd.grupo5.turma924.ifalara.local @ns2
+```     
+![dig bd grupo5 turma924 ifalara local @ns2](https://user-images.githubusercontent.com/86020329/159046858-0105651d-9c3c-49e3-9dfd-06e21021cab9.PNG)    
+
+    
+## Teste dos serviços de forma reversa NS2;
+   * Veja a resposta em **ANSWER SECTION**.
+        
+```    
+$ dig -x 10.9.24.108 @ns2
+```
+    
+![dig 108](https://user-images.githubusercontent.com/86020329/159054913-b591d547-b899-4f0e-96a0-63b9b0f95dc7.PNG)
+ 
+
+ ```
+$ dig -x 10.9.24.109 @ns2
+``` 
+![dig 109](https://user-images.githubusercontent.com/86020329/159054916-b3d21450-f5cf-4640-a4e6-8d30c3a25fba.PNG)
+    
+ ```
+$ dig -x 10.9.24.114 @ns2
+```    
+![dig 114](https://user-images.githubusercontent.com/86020329/159054918-a43ce20e-baff-4e26-ad76-011f9b80d77c.PNG)
+    
+ ```
+$ dig -x 10.9.24.117 @ns2
+``` 
+![dig 117](https://user-images.githubusercontent.com/86020329/159054919-a6de4a37-c092-45be-a251-8871b3da32d2.PNG)
+
+ ```  
+$ dig -x 10.9.24.219 @ns2
+```    
+![dig 219](https://user-images.githubusercontent.com/86020329/159054920-53f2e8fe-7dcd-42c8-8293-62365cdec1b1.PNG)
+    
+
+ ```
+$ dig -x 10.9.24.220 @ns2
+```
+![dig 220](https://user-images.githubusercontent.com/86020329/159055210-ca452f47-7844-4e47-8a1f-0d490bdedc37.PNG)
+
+ ```bash    
+$ dig -x 10.9.24.220 @ns1
+```    
+---
+
+    
+![corte](https://user-images.githubusercontent.com/86020329/158938452-57a0fa54-90a8-487a-b0f6-5e1a707f1560.png)
+    
+```bash  
+$  dig samba.grupo5.turma924.ifalara.local @10.9.24.109
+```
+    
+![dig samba grupo5 turma924 ifalara local @10 9 24 109](https://user-images.githubusercontent.com/86020329/159040311-4e4d70b2-c1ee-4d80-8243-1c652656a653.PNG)
+
+ ```    
+ nslookup para o NS1; 
+ ```
+
+![123](https://user-images.githubusercontent.com/86020329/159056789-b845fedd-407a-4699-bace-d6880680ade2.PNG)
+  
+    
+![345](https://user-images.githubusercontent.com/86020329/159056796-946a38f5-9206-4ed9-ab96-c027d5259333.PNG)
+
+    
+ ```   
+ nslookup para o NS2; 
+ ```
+![nada](https://user-images.githubusercontent.com/86020329/159060423-3cf3c555-4b47-4217-b4e4-ccdbdf0c76f5.PNG)
+
+    
+![dana](https://user-images.githubusercontent.com/86020329/159060421-f428439e-04de-4796-804b-f60a4c12b2ab.PNG)  
+
+    
+    
+```    
+nslookup ns1_IP ns1 E os demais;
+```   
+![loc1](https://user-images.githubusercontent.com/86020329/159061389-9ae852c0-9b2b-4a72-ac6a-6f67454d405d.PNG)
+
+```    
+nslookup ns1_IP ns2 E os demais;
+```   
+![loc2](https://user-images.githubusercontent.com/86020329/159062508-2a437c23-1841-4b61-aa03-b91eb47bc04b.PNG)
+    
+
+    
+ ### Teste por Ping;   
+    
+    
+![ping 1](https://user-images.githubusercontent.com/86020329/159064385-d62b2533-3919-4c2a-aaca-2017d6288ef9.PNG)
+
+    
+![ping 2](https://user-images.githubusercontent.com/86020329/159064397-14482873-d7ff-4813-8cf8-eda549567fcd.PNG)
+
+```    
+Ping por 192.168.24.33 até 38;
+```    
+![ping 192](https://user-images.githubusercontent.com/86020329/159065722-eedc98ea-0ab1-48f6-ae03-afa05ee64e16.PNG)
+
+
+![ping 19222](https://user-images.githubusercontent.com/86020329/159065749-0a364586-f7cd-4346-b77c-7fed32a1dcd5.PNG)
     
 ## Considerações Finais
 A intenção maior deste projeto foi introduzir o uso dos conhecimentos passados em aulas síncronas e assíncronas, fazer algumas implementações sobre: Configuuração de interfaces de redes, Configuração do SAMBA, Configuração do DNS (master e slave), Configuração e instalação do Web LAMP (Linux+Apache+PHP+Mysql) e por fim Configuração do gateway server/NAT. O projeto visa acima de tudo o aprimoramento do trabalho em equipe, onde juntos ficamos mais fortes ao usar as máquinas virtuais dada pelo professor/mentor: Alaelson Jatobá. Fica os agradecimentos pelo o suporte dado a este professor! Esse projeto foi feito com muita dedicação e esforço! 
