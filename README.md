@@ -561,7 +561,7 @@ $ sudo named-checkconf
 ```
 * Resultado Esperado
 
-![Captura de Tela (105)](https://user-images.githubusercontent.com/86020329/158038656-8a08c7d7-f190-48a3-bf35-8e1579b59cb3.png)
+![dig 10----ns1 ok](https://user-images.githubusercontent.com/86020329/159103297-76e4a602-6738-4e98-a3f3-590c663a27ed.png)
 
 
 # 5. Configuração do Web LAMP (Linux+Apache+PHP+Mysql);
@@ -580,7 +580,7 @@ $ sudo apt install -y apache2 apache2-utils
 ```bash
 $systemctl status apache2
 ```
-![Captura de Tela (107)](https://user-images.githubusercontent.com/86020329/158045431-3b7db591-a261-4fc1-a787-42866dcdfb78.png)
+![apache status ok](https://user-images.githubusercontent.com/86020329/159103595-61a531a8-32ff-4178-a330-bae366507304.png)
 
 ```bash
 $ sudo systemctl enable apache2
@@ -588,7 +588,8 @@ $ sudo systemctl enable apache2
  Synchronizing state of apache2.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable apache2
 ```
-![Captura de Tela (108)](https://user-images.githubusercontent.com/86020329/158046051-79ce8ba4-d4cd-443a-92ab-214ce9ee6691.png)
+![apache conf ok](https://user-images.githubusercontent.com/86020329/159103669-50334df7-d6ba-42ae-af71-391de61e6b64.png)
+
 
  ## Resultado página web:
  ![Captura de Tela (110)](https://user-images.githubusercontent.com/86020329/158049098-06be99b5-9d8d-4d2b-bd47-8ae228734dae.png)
@@ -654,7 +655,7 @@ LAN interface: ens192
 
    4º. Configurar as interfaces de rede (netplan) 
 
-```bash
+```
 $ sudo nano /etc/netplan/50-cloud-init.yaml 
 ```
 
@@ -745,7 +746,7 @@ $ sudo nano /etc/netplan/00--installer.yaml
     Ativando o gateway na ns1;
 ```
     
-![Captura de Tela (106)](https://user-images.githubusercontent.com/86020329/158039382-443b7597-5cff-4b1a-9823-ed7e58365d07.png)
+![ativ gw ok](https://user-images.githubusercontent.com/86020329/159103720-7fea9200-5310-4fe7-89dc-02abef6f47f7.png)
 
 
 ```bash
@@ -834,10 +835,7 @@ Consultando o Banco
 ```
     É só faz o login que foi cadastrado na hora da configuração e terá acesso ao arquivo e poderá compartilhar;
 ```
- 
-    
-    
-![WhatsApp Image 2022-03-16 at 10 21 00](https://user-images.githubusercontent.com/86020329/158603019-9244dd9c-af60-4da7-9741-e22459a36b71.jpeg)
+![samba ok](https://user-images.githubusercontent.com/86020329/159103348-9fe3f23a-1043-4a58-baea-319659afdeff.jpg)
    
 ## Resultado de testes das implementações;
 #### Teste dos serviços NS1 ; 
@@ -999,7 +997,7 @@ $ dig -x 10.9.24.220 @ns1
     
 ![corte](https://user-images.githubusercontent.com/86020329/158938452-57a0fa54-90a8-487a-b0f6-5e1a707f1560.png)
     
-```bash  
+```  
 $  dig samba.grupo5.turma924.ifalara.local @10.9.24.109
 ```
     
