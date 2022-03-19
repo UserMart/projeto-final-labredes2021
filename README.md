@@ -1051,5 +1051,28 @@ Ping por 192.168.24.33 até 38;
 
 ![ping 19222](https://user-images.githubusercontent.com/86020329/159065749-0a364586-f7cd-4346-b77c-7fed32a1dcd5.PNG)
     
+    
+    
+## Interfaces configuradas;
+![interface ns1](https://user-images.githubusercontent.com/86020329/159104470-de2d0d08-e1c1-4a15-83c3-1241743c377b.PNG)
+
+
+![interface ns2](https://user-images.githubusercontent.com/86020329/159104471-ab1bd1d6-c468-4af6-a6f0-96a25becd856.png)
+
+
+![interface gw](https://user-images.githubusercontent.com/86020329/159104469-573660ec-40cf-4b80-919a-80e6d58484cf.png)
+
+
+![interface samba](https://user-images.githubusercontent.com/86020329/159104472-6d5cab5e-128a-47fb-b98a-e1f5310abf50.png)
+
+
+![interface www](https://user-images.githubusercontent.com/86020329/159104473-38af46c7-6f25-4d53-bbc5-7b7b53da3fa3.png)
+
+
+![interface bd](https://user-images.githubusercontent.com/86020329/159104467-c90006d6-f4de-44c1-b587-da3277eb6d26.png)
+
+
+
+    
 ## Considerações Finais
 A intenção maior deste projeto foi introduzir o uso dos conhecimentos passados em aulas síncronas e assíncronas, fazer algumas implementações sobre: Configuuração de interfaces de redes, Configuração do SAMBA, Configuração do DNS (master e slave), Configuração e instalação do Web LAMP (Linux+Apache+PHP+Mysql) e por fim Configuração do gateway server/NAT. O projeto visa acima de tudo o aprimoramento do trabalho em equipe, onde juntos ficamos mais fortes ao usar as máquinas virtuais dada pelo professor/mentor: Alaelson Jatobá. Fica os agradecimentos pelo o suporte dado a este professor! Esse projeto foi feito com muita dedicação e esforço! 
